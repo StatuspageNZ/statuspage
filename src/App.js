@@ -64,6 +64,7 @@ function App() {
         </div>
       </div>
 
+      <input className="search" type="text" placeholder="Search brown bay"/>
 
     </div>
   );
