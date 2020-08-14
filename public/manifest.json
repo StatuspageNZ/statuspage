@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Citizen Status Page",
+  "name": "The web site every concerned New Zealand citizen should check",
   "icons": [
     {
       "src": "favicon.ico",
