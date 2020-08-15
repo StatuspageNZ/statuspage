@@ -83,7 +83,7 @@ function App() {
   };
 
   const inputProps = {
-    placeholder: "Try Auckland",
+    placeholder: "Try Auckland Central",
     value,
     onChange,
   };
