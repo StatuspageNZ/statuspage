@@ -4,10 +4,18 @@ import AlertFeed from "./AlertFeed";
 import "./App.css";
 import Header from "./Header";
 import ReactTooltip from "react-tooltip";
+import suburbs from "./suburbs";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
+  const suburb = new URLSearchParams(location.search).get("suburb");
+  const locality = suburbs.find(locality => locality[0] === suburb)
+
   let history = useHistory();
+
+  if (!locality) {
+    return <h1>Suburb not found 😢</h1>
+  }
 
   const barGraphs = [
     {
@@ -53,7 +61,7 @@ function AppDetails({ location }) {
       {/* Header */}
       <Header
         title={`${category} Status`}
-        location="Browns Bay, Auckland, NZ"
+        location={locality.length ? `${locality[0]}, ${locality[1]}, NZ` : '-'}
         openEditLocation={() => {
           document.activeElement.blur();
         }}

@@ -2,13 +2,13 @@ import React from "react";
 import Highlighter from "./Highlighter";
 import { useHistory } from "react-router-dom";
 
-const StatusSection = ({ category, icon, highlight, color, children }) => {
+const StatusSection = ({ category, suburb, icon, highlight, color, children }) => {
   let history = useHistory();
 
   return (
     <div
       className="status-section"
-      onClick={() => history.push(`/details?category=${category}`)}
+      onClick={() => history.push(`/details?category=${category}&suburb=${suburb}`)}
     >
       <div className="status-section__header">
         <div className={`status-section__icon status-section__icon--${color}`}>

@@ -212,9 +212,22 @@ function App() {
       {/* Status Details */}
       <Statuses>
         {filteredSections.map((section, i) => (
-          <StatusSection key={i} category={section.category} icon={section.icon} highlight={filterQuery} color={section.color}>
+          <StatusSection
+            key={i}
+            suburb={selectedLocality[0]}
+            category={section.category}
+            icon={section.icon}
+            highlight={filterQuery}
+            color={section.color}
+          >
             {section.items.map((item, j) => (
-              <StatusItem key={j} title={item.title} details={item.details} color={item.color} highlight={filterQuery} />
+              <StatusItem
+                key={j}
+                title={item.title}
+                details={item.details}
+                color={item.color}
+                highlight={filterQuery}
+              />
             ))}
           </StatusSection>
         ))}
