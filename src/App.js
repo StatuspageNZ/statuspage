@@ -7,8 +7,8 @@ import Statuses from "./Statuses";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
 import Autosuggest from "react-autosuggest";
-import Modal from 'react-modal';
-import suburbs from './suburbs'
+import Modal from "react-modal";
+import suburbs from "./suburbs";
 
 const getSuggestions = (value) => {
   const inputValue = value.trim().toLowerCase();
@@ -27,7 +27,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
-  const [selectedLocality, setSelectedLocality] = useState(['', ''])
+  const [selectedLocality, setSelectedLocality] = useState(["", ""]);
 
   function onChange(event, { newValue }) {
     setValue(newValue);
@@ -48,9 +48,9 @@ function App() {
   };
 
   const onCurrentLocationClicked = () => {
-    setEditLocationModalOpen(false)
-    setValue("Auckland")
-  }
+    setEditLocationModalOpen(false);
+    setValue("Auckland");
+  };
 
   return (
     <div className="App">
@@ -73,7 +73,7 @@ function App() {
       </Overview>
 
       {/* Search */}
-      <Search location={""} setLocation={() =>{}} />
+      <Search location={""} setLocation={() => {}} />
 
       {/* Status Details */}
       <Statuses>
@@ -158,16 +158,31 @@ function App() {
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
             getSuggestionValue={(suggestion) => suggestion[0]}
-            renderSuggestion={(suggestion) => (<span>{suggestion[0]}, {suggestion[1]}, NZ</span>)}
+            renderSuggestion={(suggestion) => (
+              <span>
+                {suggestion[0]}, {suggestion[1]}, NZ
+              </span>
+            )}
             inputProps={inputProps}
-            onSuggestionSelected={(e, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-              setSelectedLocality(suggestion)
-              setEditLocationModalOpen(false)
+            onSuggestionSelected={(
+              e,
+              {
+                suggestion,
+                suggestionValue,
+                suggestionIndex,
+                sectionIndex,
+                method,
+              }
+            ) => {
+              setSelectedLocality(suggestion);
+              setEditLocationModalOpen(false);
             }}
           />
 
           <div className="edit-location-modal__delimeter">or</div>
-          <button onClick={onCurrentLocationClicked}>Use current location</button>
+          <button onClick={onCurrentLocationClicked}>
+            Use current location
+          </button>
         </div>
       </Modal>
     </div>
