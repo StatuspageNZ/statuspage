@@ -130,7 +130,7 @@ function App() {
     icon: "section-utilities.svg",
     color: "red",
     items: [
-      (waterCareOutageNumber === "0" ? { title: "Water", details: "no outages reported", color: "green" } : { title: "Water", details: `${waterCareOutageNumber} outage(s)`, color: "yellow"}),
+      (waterCareOutageNumber === 0 ? { title: "Water", details: "no outages reported", color: "green" } : { title: "Water", details: `${waterCareOutageNumber} outage(s)`, color: "yellow"}),
       (vectorPowerOk ? { title: "Power", details: "no disruptions", color: "green" } : { title: "Power", details: "issues", color: "red" }),
       (vodafoneLineOk && sparkLandlineOk) ? { title: "Landline & Internet", details: "available", color: "green" } : !(vodafoneLineOk && sparkLandlineOk) ? { title: "Landline & Internet", details: "partial disruption", color: "yellow" } : { title: "Landline & Internet", details: "major disruption", color: "red" },
       (vodafoneMobileOk && sparkMobileOk) ? { title: "Mobile Networks", details: "available", color: "green" } : !(vodafoneMobileOk && sparkMobileOk) ? { title: "Mobile Networks", details: "partial disruption", color: "yellow" } : { title: "Mobile Networks", details: "major disruption", color: "red" },
