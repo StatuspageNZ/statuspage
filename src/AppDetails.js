@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
 import Header from "./Header";
+import AlertFeed from "./AlertFeed";
 
 function AppDetails({ location }) {
-  const category = new URLSearchParams(location.search).get('category');
+  const category = new URLSearchParams(location.search).get("category");
 
   return (
     <div className="App">
@@ -78,12 +79,12 @@ function AppDetails({ location }) {
             <div className="bar-graph__year">2010</div>
             <div className="bar-graph__date">Today</div>
           </div>
-
         </div>
         {/* OLAF TO DO */}
         <h1>Latest alerts</h1>
         <div className="last-alerts__container"></div>
         User wants to view details about {category}
+        <AlertFeed />
       </div>
     </div>
   );
