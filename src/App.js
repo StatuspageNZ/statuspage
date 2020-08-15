@@ -7,7 +7,7 @@ import StatusSection from "./StatusSection";
 import Autosuggest from 'react-autosuggest';
 import Modal from 'react-modal';
 
-const languages = [
+const suburbs = [
   {
     name: "Auckland"
   },
@@ -28,7 +28,7 @@ const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
-  return inputLength === 0 ? [] : languages.filter(lang =>
+  return inputLength === 0 ? [] : suburbs.filter(lang =>
     lang.name.toLowerCase().slice(0, inputLength) === inputValue
   );
 };
