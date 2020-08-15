@@ -1,5 +1,7 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import StatusItem from "./StatusItem";
+import StatusSection from "./StatusSection";
 
 function App() {
   return (
@@ -21,7 +23,6 @@ function App() {
           <b>Browns Bay</b> is at Alert Level 3
         </div>
         <div className="overview__description">
-
           <div className="line-item__container">
             <div className="line-item__status-circle line-item__status-circle--red"></div>
             <b>Travel</b> restrictions apply
@@ -60,182 +61,56 @@ function App() {
             <div className="line-item__status-circle line-item__status-circle--green"></div>
             <b>Essential goods</b> available
           </div>
-
         </div>
       </div>
 
-      <input className="search" type="text" placeholder="Search brown bay"/>
+      <input className="search" type="text" placeholder="Search brown bay" />
 
       <div className="statuses">
+        <StatusSection category="Healthcare" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+          <StatusItem title="ICU Beds" details="123 available" color="green" />
+          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+        </StatusSection>
 
+        <StatusSection category="Essential Goods" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+          <StatusItem title="ICU Beds" details="123 available" color="green" />
+          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+        </StatusSection>
 
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Healthcare</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Avg Wait time</b> - 45 mins
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>ICU Beds</b> - 123 available
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>6 of 6</b> Hospitals operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>6 / 6</b> Hospitals operational
-            </div>
-          </div>
-        </div>
+        <StatusSection category="Security" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+        </StatusSection>
 
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Essential Goods</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Avg Wait time</b> - 45 mins
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>ICU Beds</b> - 123 available
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>6 of 6</b> Hospitals operational
-            </div>
-          </div>
-        </div>
+        <StatusSection category="Utilities" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+          <StatusItem title="ICU Beds" details="123 available" color="green" />
+          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+        </StatusSection>
 
+        <StatusSection category="Trasport" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+          <StatusItem title="ICU Beds" details="123 available" color="green" />
+          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+        </StatusSection>
 
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Security</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Avg Wait time</b> - 45 mins
-            </div>
-          </div>
-        </div>
-
-
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Utilities</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Avg Wait time</b> - 45 mins
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>ICU Beds</b> - 123 available
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>6 of 6</b> Hospitals operational
-            </div>
-          </div>
-        </div>
-
-
-
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Transport</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Avg Wait time</b> - 45 mins
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>ICU Beds</b> - 123 available
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>6 of 6</b> Hospitals operational
-            </div>
-          </div>
-        </div>
-
-        <div className="status-section">
-          <div className="status-section__header">
-            <div className="status-section__icon"></div>
-            <div className="status-section__title">Environment</div>
-          </div>
-          <div className="status-section__content">
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospital Beds</b> - 123 / 1234
-            </div>
-            <div className="line-item__container">
-              <div className="line-item__status-circle line-item__status-circle--green"></div>
-              <b>Hospitals</b> - 6/6 operational
-            </div>
-          </div>
-        </div>
-
-
-  
+        <StatusSection category="Environment" icon="">
+          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
+          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+        </StatusSection>
       </div>
-      
-
     </div>
   );
 }
