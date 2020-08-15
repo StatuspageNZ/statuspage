@@ -6,7 +6,7 @@ import StatusSection from "./StatusSection";
 function App() {
   return (
     <div className="App">
-      <div>
+  
         <div className="header__container">
           <div className="header__left-part">
             <div className="header__title">Civil Status</div>
@@ -17,7 +17,7 @@ function App() {
             <button className="fancy-button">Edit location</button>
           </div>
         </div>
-      </div>
+   
       <div className="overview">
         <div className="overview__header">
           <b>Browns Bay</b> is at Alert Level 3
