@@ -27,7 +27,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
-  const [selectedLocality, setSelectedLocality] = useState(["", ""]);
+  const [selectedLocality, setSelectedLocality] = useState([]);
 
   function selectLocality(value) {
     const locality = suburbs.find(locality => locality[0] === value)
@@ -63,12 +63,12 @@ function App() {
     <div className="App">
       {/* Header */}
       <Header
-        location={`${selectedLocality[0]}, ${selectedLocality[1]}, NZ`}
+        location={selectedLocality.length ? `${selectedLocality[0]}, ${selectedLocality[1]}, NZ` : '-'}
         openEditLocation={() => { document.activeElement.blur(); setEditLocationModalOpen(true) }}
       />
 
       {/* Overview */}
-      <Overview location={selectedLocality[0]} alertLevel={3}>
+      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={3}>
         <StatusItem title="Travel" details="restrictions apply" color="red" />
         <StatusItem title="Water" details="restrictions apply" color="red" />
         <StatusItem title="Internet" details="available" color="green" />
