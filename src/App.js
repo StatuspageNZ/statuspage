@@ -61,7 +61,7 @@ function App() {
       />
 
       {/* Overview */}
-      <Overview location="Browns Bay" alertLevel={3}>
+      <Overview location={selectedLocality[0]} alertLevel={3}>
         <StatusItem title="Travel" details="restrictions apply" color="red" />
         <StatusItem title="Water" details="restrictions apply" color="red" />
         <StatusItem title="Internet" details="available" color="green" />
