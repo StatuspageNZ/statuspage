@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import Overview from "./Overview";
@@ -18,6 +18,36 @@ function App() {
   const [value, setValue] = useState("");
   const [filterQuery, setFilterQuery] = useState("")
   const [selectedLocality, setSelectedLocality] = useState([]);
+  const [vodafoneLineOk, setVodafoneLineOk] = useState(true);
+  const [vodafoneMobileOk, setVodafoneMobileOk] = useState(true);
+  const [sparkLandlineOk, setSparkLandlineOk] = useState(true);
+  const [sparkMobileOk, setSparkMobileOk] = useState(true);
+  const [vectorPowerOk, setVectorPowerOk] = useState(true);
+  const [earthquakeOk, setEarthquakeOk] = useState(true);
+  const [alertLevelStatus, setAlertLevelStatus] = useState("Alert Level 1");
+  const [waterCareOutageNumber, setWaterCareOutageNumber] = useState(0);
+  const [damWaterLevel, setDamWaterLevel] = useState(100);
+
+
+  const fetchData = async () => {
+    const response = await fetch("http://api.checkon.life/data");
+    const json = await response.json();
+    console.log(json);
+    setVodafoneLineOk(json.vodaphoneLineStatus.isOk);
+    setVodafoneMobileOk(json.vodaphoneMobileStatus.isOk);
+    setSparkLandlineOk(json.sparkLandlineStatus.isOk);
+    setSparkMobileOk(json.sparkMobileStatus.isOk);
+    setVectorPowerOk(json.vectorPowerStatus.isOk);
+    setEarthquakeOk(json.earthQuakeStaus.isOk);
+    setAlertLevelStatus(json.alertLevelStatus.Auckland);
+    setWaterCareOutageNumber(json.waterCareOutatage.numberOfOutages);
+    setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
 
   const getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
@@ -26,8 +56,8 @@ function App() {
     return inputLength === 0
       ? []
       : suburbs.filter(
-          (lang) => lang[0].toLowerCase().slice(0, inputLength) === inputValue
-        );
+        (lang) => lang[0].toLowerCase().slice(0, inputLength) === inputValue
+      );
   };
 
   function selectLocality(value) {
@@ -100,9 +130,10 @@ function App() {
     icon: "section-utilities.svg",
     color: "red",
     items: [
-      { title: "Water", details: "restrictions apply", color: "yellow" },
-      { title: "Power", details: "repairs in progress", color: "red" },
-      { title: "Internet", details: "available", color: "green" },
+      (waterCareOutageNumber === "0" ? { title: "Water", details: "no outages reported", color: "green" } : { title: "Water", details: `${waterCareOutageNumber} outage(s)`, color: "yellow"}),
+      (vectorPowerOk ? { title: "Power", details: "no disruptions", color: "green" } : { title: "Power", details: "issues", color: "red" }),
+      (vodafoneLineOk && sparkLandlineOk) ? { title: "Landline & Internet", details: "available", color: "green" } : !(vodafoneLineOk && sparkLandlineOk) ? { title: "Landline & Internet", details: "partial disruption", color: "yellow" } : { title: "Landline & Internet", details: "major disruption", color: "red" },
+      (vodafoneMobileOk && sparkMobileOk) ? { title: "Mobile Networks", details: "available", color: "green" } : !(vodafoneMobileOk && sparkMobileOk) ? { title: "Mobile Networks", details: "partial disruption", color: "yellow" } : { title: "Mobile Networks", details: "major disruption", color: "red" },
       { title: "Fuel", details: "available", color: "green" },
       { title: "Potatoes", details: "availability", color: "green" },
     ]
@@ -126,6 +157,8 @@ function App() {
     items: [
       { title: "Air Quality", details: "good", color: "green" },
       { title: "Water Quality", details: "good", color: "green" },
+      earthquakeOk ? { title: "Earthquakes", details: "no recent", color: "green"} : { title: "Earthquakes", details: "recent major quake", color: "red"},
+      {title: "Dam Levels", details: `${damWaterLevel}%`, color: damWaterLevel > 50 ? "green" : damWaterLevel < 30 ? "red" : "yellow"},
     ]
   }]
 
@@ -146,11 +179,19 @@ function App() {
       />
 
       {/* Overview */}
-      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={3}>
+      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={alertLevelStatus}>
         <StatusItem title="Travel" details="restrictions apply" color="red" highlight="" />
         <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
-        <StatusItem title="Internet" details="available" color="green" highlight="" />
-        <StatusItem title="Power" details="issues" color="yellow" highlight="" />
+        {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
+          <StatusItem title="Connectivity" details="available" color="green" highlight="" /> : 
+            !(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
+              <StatusItem title="Connectivity" details="some issues" color="yellow" highlight="" /> : 
+                <StatusItem title="Connectivity" details="critical outages" color="red" highlight="" />
+        }
+        {vectorPowerOk ? 
+          <StatusItem title="Power" details="no disruptions" color="green" highlight="" /> :
+            <StatusItem title="Power" details="issues" color="red" highlight="" />
+        }
         <StatusItem title="Healthcare" details="available" color="green" highlight="" />
         <StatusItem title="Security" details="no issues" color="green" highlight="" />
         <StatusItem title="Weather" details="no issues" color="green" highlight="" />
