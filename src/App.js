@@ -124,8 +124,10 @@ function App() {
   }]
 
   const filteredSections = sections.filter(section => {
-    // TODO: improve filtering
-    return section.category.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1
+    const matchingItem = section.items.find(item => {
+      return item.title.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1
+    })
+    return section.category.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1 || matchingItem
   })
 
   return (
