@@ -28,8 +28,7 @@ function App() {
   const [waterCareOutageNumber, setWaterCareOutageNumber] = useState(0);
   const [damWaterLevel, setDamWaterLevel] = useState(100);
 
-
-  const fetchData = async () => {
+  async function fetchData() {
     const response = await fetch("http://api.checkon.life/data");
     const json = await response.json();
     console.log(json);
@@ -48,8 +47,7 @@ function App() {
     fetchData();
   }, []);
 
-
-  const getSuggestions = (value) => {
+  function getSuggestions(value) {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
@@ -79,15 +77,15 @@ function App() {
     setSuggestions([]);
   }
 
+  function onCurrentLocationClicked() {
+    setEditLocationModalOpen(false);
+    selectLocality("Auckland Central");
+  };
+
   const inputProps = {
     placeholder: "Try Auckland",
     value,
     onChange,
-  };
-
-  const onCurrentLocationClicked = () => {
-    setEditLocationModalOpen(false);
-    selectLocality("Auckland Central");
   };
 
   const sections = [{
@@ -163,10 +161,11 @@ function App() {
   }]
 
   const filteredSections = sections.filter(section => {
+    const query = filterQuery.trim().toLowerCase()
     const matchingItem = section.items.find(item => {
-      return item.title.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1
+      return item.title.toLowerCase().indexOf(query) !== -1
     })
-    return section.category.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1 || matchingItem
+    return section.category.toLowerCase().indexOf(query) !== -1 || matchingItem
   })
 
   return (
@@ -179,7 +178,10 @@ function App() {
       />
 
       {/* Overview */}
-      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}>
+      <Overview
+        location={selectedLocality.length ? selectedLocality[0] : ''}
+        alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}
+      >
         <StatusItem title="Travel" details="restrictions apply" color="red" highlight="" />
         <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
         {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
