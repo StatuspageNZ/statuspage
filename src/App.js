@@ -159,10 +159,10 @@ function App() {
       {/* Status Details */}
       <Statuses>
         {filteredSections.map(section => (
-          <StatusSection category={section.category} icon={section.icon}>
+          <StatusSection category={section.category} icon={section.icon} highlight={filterQuery}>
             {/* TODO: highlight filter query */}
             {section.items.map(item => (
-              <StatusItem title={item.title} details={item.details} color={item.color} />
+              <StatusItem title={item.title} details={item.details} color={item.color} highlight={filterQuery} />
             ))}
           </StatusSection>
         ))}
