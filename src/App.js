@@ -13,11 +13,12 @@ import suburbs from "./suburbs";
 Modal.setAppElement("#root");
 
 function App() {
-  const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
+  const selectedLocalityLS = localStorage.getItem('selectedLocality')
+  const [selectedLocality, setSelectedLocality] = useState(selectedLocalityLS ? JSON.parse(selectedLocalityLS) : []);
+  const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(selectedLocality.length ? false : true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
   const [filterQuery, setFilterQuery] = useState("")
-  const [selectedLocality, setSelectedLocality] = useState([]);
   const [vodafoneLineOk, setVodafoneLineOk] = useState(true);
   const [vodafoneMobileOk, setVodafoneMobileOk] = useState(true);
   const [sparkLandlineOk, setSparkLandlineOk] = useState(true);
@@ -30,7 +31,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const response = await fetch("http://api.checkon.life/datayeet");
+      const response = await fetch("http://api.checkon.life/data");
       const json = await response.json();
       console.log('json', json);
       setVodafoneLineOk(json.vodaphoneLineStatus.isOk);
@@ -67,6 +68,7 @@ function App() {
     const locality = suburbs.find(locality => locality[0] === value)
     if (locality) {
       setSelectedLocality(locality);
+      localStorage.setItem('selectedLocality', JSON.stringify(locality))
     }
   }
 
