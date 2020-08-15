@@ -153,7 +153,7 @@ function App() {
         <StatusItem title="Power" details="issues" color="yellow" highlight="" />
         <StatusItem title="Healthcare" details="available" color="green" highlight="" />
         <StatusItem title="Security" details="no issues" color="green" highlight="" />
-        <StatusItem title="Watercare" details="no issues" color="green" highlight="" />
+        <StatusItem title="Weather" details="no issues" color="green" highlight="" />
         <StatusItem title="Essential Goods" details="available" color="green" highlight="" />
       </Overview>
 
