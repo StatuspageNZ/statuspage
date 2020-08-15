@@ -1,10 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import AlertFeed from "./AlertFeed";
 import "./App.css";
 import Header from "./Header";
-import AlertFeed from "./AlertFeed";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
+  let history = useHistory();
 
   return (
     <div className="App">
@@ -20,7 +22,12 @@ function AppDetails({ location }) {
 
       <div className="app-details__container">
         {/* ILIA TO DO */}
-        <h1>Healthcare Status</h1>
+        <h1>
+          <span onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
+            ←
+          </span>{" "}
+          Healthcare Status
+        </h1>
         <div className="bar-graph__container">
           <div className="bar-graph__header">
             <div className="bar-graph__status-indicator"></div>
