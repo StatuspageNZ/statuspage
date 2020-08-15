@@ -52,7 +52,7 @@ function AppDetails({ location }) {
     <div className="App">
       {/* Header */}
       <Header
-        title="Healthcare Status"
+        title={`${category} Status`}
         location="Browns Bay, Auckland, NZ"
         openEditLocation={() => {
           document.activeElement.blur();
@@ -67,7 +67,7 @@ function AppDetails({ location }) {
           <span onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
             ←
           </span>{" "}
-          Healthcare Status
+          {category} Status
         </h1>
 
         {barGraphs.map((barGraph) => (
