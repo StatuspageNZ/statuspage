@@ -2,22 +2,12 @@ import React from "react";
 import "./App.css";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
+import Header from "./Header";
 
 function App() {
   return (
     <div className="App">
-  
-        <div className="header__container">
-          <div className="header__left-part">
-            <div className="header__title">Civil Status</div>
-            <div className="header__location">Browns Bay, Auckland, NZ</div>
-          </div>
-          <div className="header__right-part">
-            <button className="fancy-button">Get Alerts</button>
-            <button className="fancy-button">Edit location</button>
-          </div>
-        </div>
-   
+      <Header location="Browns Bay, Auckland, NZ" />
       <div className="overview">
         <div className="overview__header">
           <b>Browns Bay</b> is at Alert Level 3
@@ -68,12 +58,28 @@ function App() {
 
       <div className="statuses">
         <StatusSection category="Healthcare" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem
+            title="Hospital Beds"
+            details="123 / 1234"
+            color="green"
+          />
+          <StatusItem
+            title="Hospitals"
+            details="6/6 operational"
+            color="green"
+          />
           <StatusItem title="Avg Wait time" details="45 mins" color="green" />
           <StatusItem title="ICU Beds" details="123 available" color="green" />
-          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
-          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+          <StatusItem
+            title="6 of 6"
+            details="Hospitals operational"
+            color="green"
+          />
+          <StatusItem
+            title="6 of 6"
+            details="Hospitals operational"
+            color="green"
+          />
         </StatusSection>
 
         <StatusSection category="Essential Goods" icon="">
@@ -91,7 +97,11 @@ function App() {
         </StatusSection>
 
         <StatusSection category="Utilities" icon="">
-          <StatusItem title="Water" details="restrictions apply" color="yellow" />
+          <StatusItem
+            title="Water"
+            details="restrictions apply"
+            color="yellow"
+          />
           <StatusItem title="Power" details="repairs in progress" color="red" />
           <StatusItem title="Internet" details="available" color="green" />
           <StatusItem title="Fuel" details="available" color="green" />
@@ -101,7 +111,11 @@ function App() {
         <StatusSection category="Trasport" icon="">
           <StatusItem title="Traffic" details="clear" color="green" />
           <StatusItem title="Flights" details="restricted" color="red" />
-          <StatusItem title="Travel" details="restrictions apply" color="green" />
+          <StatusItem
+            title="Travel"
+            details="restrictions apply"
+            color="green"
+          />
           <StatusItem title="Fuel" details="available" color="green" />
           <StatusItem title="Potatoes" details="available" color="green" />
         </StatusSection>

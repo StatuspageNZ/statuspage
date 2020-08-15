@@ -1,18 +1,17 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.header__container{
-  
+.header__container {
   width: 100%;
-  display:flex;
-  margin-top:29px;
-  margin-bottom:29px;
+  display: flex;
+  margin-top: 29px;
+  margin-bottom: 29px;
 }
 
 .header__left-part {
@@ -28,16 +27,16 @@
 
 .header__right-part {
   flex-basis: 100%;
-  text-align:right;
+  text-align: right;
 }
 
 .fancy-button {
-  background: #4E4EA3;
+  background: #4e4ea3;
   border: none;
   box-sizing: border-box;
   border-radius: 12px;
 
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 12px 30px;
   font-weight: bold;
   font-size: 16px;
@@ -48,9 +47,8 @@
 .overview {
   max-width: 1000px;
   width: 100%;
-  
 
-  background: #FFFFFF;
+  background: #ffffff;
   border: 4px solid #000000;
   box-sizing: border-box;
   box-shadow: 6px 6px 0px #000000;
@@ -87,7 +85,7 @@
 }
 
 .line-item__status-circle {
-  display:inline-block;
+  display: inline-block;
   margin-right: 12px;
   width: 24px;
   height: 24px;
@@ -97,18 +95,18 @@
 }
 
 .line-item__status-circle--red {
-  background: #FF7676;
+  background: #ff7676;
 }
 .line-item__status-circle--green {
-  background: #91FF76;
+  background: #91ff76;
 }
 .line-item__status-circle--yellow {
-  background: #FCFF76;
+  background: #fcff76;
 }
 
 .search {
   margin-top: 40px;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 4px solid #000000;
   box-sizing: border-box;
   box-shadow: 6px 6px 0px #000000;
@@ -133,7 +131,7 @@
 }
 
 .status-section {
-  background: #FFFFFF;
+  background: #ffffff;
   border: 4px solid #000000;
   box-sizing: border-box;
   box-shadow: 8px 6px 0px #000000;
@@ -151,7 +149,7 @@
   width: 65px;
   height: 67px;
   display: inline-block;
-  background: #91FF76;
+  background: #91ff76;
   border-top-left-radius: 6px;
   border-right: 4px solid black;
 }
@@ -168,29 +166,23 @@
   padding: 24px;
 }
 
-
 @media screen and (max-width: 1920px) {
-
 }
-
-
 
 @media screen and (max-width: 1280px) {
   .App {
- padding: 0 2rem;
+    padding: 0 2rem;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .statuses {
-  column-count: 1;
+    column-count: 1;
+  }
+  .overview__description {
+    column-count: 1;
+  }
 }
-.overview__description {
-  column-count: 1;
-}
-}
-
 
 @media screen and (max-width: 768px) {
-  
 }
