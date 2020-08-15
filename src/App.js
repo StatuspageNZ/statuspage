@@ -49,6 +49,7 @@ function App() {
 
   const onCurrentLocationClicked = () => {
     setEditLocationModalOpen(false);
+    setValue("Auckland Central, Auckland")
     setSelectedLocality(["Auckland Central", "Auckland"]);
   };
 
@@ -145,6 +146,7 @@ function App() {
       <Modal
         isOpen={isEditLocationModalOpen}
         className="edit-location-modal"
+        onRequestClose={onCurrentLocationClicked}
         overlayClassName="edit-location-modal__overlay"
         contentLabel="Edit Location"
       >
@@ -159,7 +161,7 @@ function App() {
             onSuggestionsClearRequested={onSuggestionsClearRequested}
             getSuggestionValue={(suggestion) => suggestion[0]}
             renderSuggestion={(suggestion) => (
-              <span>
+              <span className="edit-location-modal__content-suggestion">
                 {suggestion[0]}, {suggestion[1]}, NZ
               </span>
             )}
