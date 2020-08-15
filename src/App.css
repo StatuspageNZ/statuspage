@@ -72,9 +72,7 @@
   padding-left: 24px;
   padding-right: 24px;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  column-count: 2;
 }
 
 .line-item__container {
