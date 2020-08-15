@@ -45,7 +45,7 @@ function App() {
       setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
     }
     catch (e) {
-      alert(`Error loading data: ${e.message} 😢`)
+      // alert(`Error loading data: ${e.message} 😢`)
     }
   }
 
