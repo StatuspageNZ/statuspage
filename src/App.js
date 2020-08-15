@@ -6,14 +6,70 @@ import Search from "./Search";
 import Statuses from "./Statuses";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
+import Autosuggest from "react-autosuggest";
+import Modal from "react-modal";
+
+const suburbs = [
+  {
+    name: "Auckland",
+  },
+  {
+    name: "Christchurch",
+  },
+  {
+    name: "Wellington",
+  },
+  {
+    name: "Dunedin",
+  },
+  {
+    name: "Invercargill",
+  },
+];
+const getSuggestions = (value) => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+
+  return inputLength === 0
+    ? []
+    : suburbs.filter(
+        (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+      );
+};
+
+Modal.setAppElement("#root");
 
 function App() {
   const [location, setLocation] = useState("Browns Bay, Auckland, NZ");
+  const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
+  const [suggestions, setSuggestions] = useState([]);
+  const [value, setValue] = useState("");
+
+  function onChange(event, { newValue }) {
+    setValue(newValue);
+  }
+
+  function onSuggestionsFetchRequested({ value }) {
+    setSuggestions(getSuggestions(value));
+  }
+
+  function onSuggestionsClearRequested() {
+    setSuggestions([]);
+  }
+
+  const inputProps = {
+    placeholder: "Try Auckland",
+    value,
+    onChange,
+  };
 
   return (
     <div className="App">
       {/* Header */}
-      <Header location={location} />
+      <Header
+        location={location}
+        openEditLocation={() => setEditLocationModalOpen(true)}
+      />
 
       {/* Overview */}
       <Overview location="Browns Bay" alertLevel={3}>
@@ -95,6 +151,33 @@ function App() {
           <StatusItem title="Water Quality" details="good" color="green" />
         </StatusSection>
       </Statuses>
+
+      {/* Modal */}
+      <Modal
+        isOpen={isEditLocationModalOpen}
+        className="edit-location-modal"
+        overlayClassName="edit-location-modal__overlay"
+        contentLabel="Edit Location"
+      >
+        <div className="edit-location-modal__header">
+          <div className="edit-location-modal__title">Set your location</div>
+        </div>
+        <div className="edit-location-modal__content">
+          <div>Search suburbs</div>
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            getSuggestionValue={(suggestion) => suggestion.name}
+            renderSuggestion={(suggestion) => <span>{suggestion.name}</span>}
+            inputProps={inputProps}
+            onSuggestionSelected={() => setEditLocationModalOpen(false)}
+          />
+
+          <div className="edit-location-modal__delimeter">or</div>
+          <button>Use current location</button>
+        </div>
+      </Modal>
     </div>
   );
 }
