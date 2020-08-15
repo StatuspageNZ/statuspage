@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header location={location} />
+      <Header location={location} openEditLocation={() => setEditLocationModalOpen(true)} />
       <div className="overview">
         <div className="overview__header">
           <b>Browns Bay</b> is at Alert Level 3

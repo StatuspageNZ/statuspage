@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ location }) => (
+const Header = ({ location, openEditLocation }) => (
   <div className="header__container">
     <div className="header__left-part">
       <div className="header__title">Civil Status</div>
@@ -8,7 +8,7 @@ const Header = ({ location }) => (
     </div>
     <div className="header__right-part">
       <button className="fancy-button">Get Alerts</button>
-      <button className="fancy-button">Edit location</button>
+      <button className="fancy-button" onClick={openEditLocation}>Edit location</button>
     </div>
   </div>
 );
