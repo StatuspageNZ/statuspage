@@ -1,65 +1,37 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header";
+import Overview from "./Overview";
 import Search from "./Search";
+import Statuses from "./Statuses";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
 
 function App() {
-  const [location, setLocation] = useState("Browsns Bay, Auckland, NZ");
+  const [location, setLocation] = useState("Browns Bay, Auckland, NZ");
 
   return (
     <div className="App">
+      {/* Header */}
       <Header location={location} />
-      <div className="overview">
-        <div className="overview__header">
-          <b>Browns Bay</b> is at Alert Level 3
-        </div>
-        <div className="overview__description">
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--red"></div>
-            <b>Travel</b> restrictions apply
-          </div>
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--red"></div>
-            <b>Water</b> restrictions apply
-          </div>
 
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--green"></div>
-            <b>Internet</b> available
-          </div>
+      {/* Overview */}
+      <Overview location="Browns Bay" alertLevel={3}>
+        <StatusItem title="Travel" details="restrictions apply" color="red" />
+        <StatusItem title="Water" details="restrictions apply" color="red" />
+        <StatusItem title="Internet" details="available" color="green" />
+        <StatusItem title="Power" details="issues" color="yellow" />
+        <StatusItem title="Healthcare" details="available" color="green" />
+        <StatusItem title="Security" details="no issues" color="green" />
+        <StatusItem title="Waterware" details="no issues" color="green" />
+        <StatusItem title="Essential goods" details="available" color="green" />
+      </Overview>
 
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--yellow"></div>
-            <b>Power</b> issues
-          </div>
-
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--green"></div>
-            <b>Healthcare</b> available
-          </div>
-
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--green"></div>
-            <b>Security</b> no issues
-          </div>
-
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--green"></div>
-            <b>Waterware</b> no issues
-          </div>
-
-          <div className="line-item__container">
-            <div className="line-item__status-circle line-item__status-circle--green"></div>
-            <b>Essential goods</b> available
-          </div>
-        </div>
-      </div>
-
+      {/* Search */}
       <Search location={location} setLocation={setLocation} />
 
-      <div className="statuses">
+      {/* Status Details */}
+      <Statuses>
         <StatusSection category="Healthcare" icon="">
           <StatusItem
             title="Hospital Beds"
@@ -84,7 +56,6 @@ function App() {
             color="green"
           />
         </StatusSection>
-
         <StatusSection category="Essential Goods" icon="">
           <StatusItem title="Rice" details="limited supply" color="yellow" />
           <StatusItem title="Toilet Paper" details="unavailable" color="red" />
@@ -92,13 +63,11 @@ function App() {
           <StatusItem title="Fuel" details="available" color="green" />
           <StatusItem title="Potatoes" details="available" color="green" />
         </StatusSection>
-
         <StatusSection category="Security" icon="">
           <StatusItem title="Police Response" details="25 mins" color="green" />
           <StatusItem title="Army" details="not deployed" color="green" />
           <StatusItem title="Internet" details="available" color="green" />
         </StatusSection>
-
         <StatusSection category="Utilities" icon="">
           <StatusItem
             title="Water"
@@ -110,7 +79,6 @@ function App() {
           <StatusItem title="Fuel" details="available" color="green" />
           <StatusItem title="Potatoes" details="availability" color="green" />
         </StatusSection>
-
         <StatusSection category="Trasport" icon="">
           <StatusItem title="Traffic" details="clear" color="green" />
           <StatusItem title="Flights" details="restricted" color="red" />
@@ -122,12 +90,11 @@ function App() {
           <StatusItem title="Fuel" details="available" color="green" />
           <StatusItem title="Potatoes" details="available" color="green" />
         </StatusSection>
-
         <StatusSection category="Environment" icon="">
           <StatusItem title="Air Quality" details="good" color="green" />
           <StatusItem title="Water Quality" details="good" color="green" />
         </StatusSection>
-      </div>
+      </Statuses>
     </div>
   );
 }
