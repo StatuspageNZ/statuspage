@@ -66,6 +66,176 @@ function App() {
 
       <input className="search" type="text" placeholder="Search brown bay"/>
 
+      <div className="statuses">
+
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Healthcare</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Avg Wait time</b> - 45 mins
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>ICU Beds</b> - 123 available
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>6 of 6</b> Hospitals operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>6 / 6</b> Hospitals operational
+            </div>
+          </div>
+        </div>
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Essential Goods</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Avg Wait time</b> - 45 mins
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>ICU Beds</b> - 123 available
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>6 of 6</b> Hospitals operational
+            </div>
+          </div>
+        </div>
+
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Security</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Avg Wait time</b> - 45 mins
+            </div>
+          </div>
+        </div>
+
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Utilities</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Avg Wait time</b> - 45 mins
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>ICU Beds</b> - 123 available
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>6 of 6</b> Hospitals operational
+            </div>
+          </div>
+        </div>
+
+
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Transport</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Avg Wait time</b> - 45 mins
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>ICU Beds</b> - 123 available
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>6 of 6</b> Hospitals operational
+            </div>
+          </div>
+        </div>
+
+        <div className="status-section">
+          <div className="status-section__header">
+            <div className="status-section__icon"></div>
+            <div className="status-section__title">Environment</div>
+          </div>
+          <div className="status-section__content">
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospital Beds</b> - 123 / 1234
+            </div>
+            <div className="line-item__container">
+              <div className="line-item__status-circle line-item__status-circle--green"></div>
+              <b>Hospitals</b> - 6/6 operational
+            </div>
+          </div>
+        </div>
+
+
+  
+      </div>
+      
+
     </div>
   );
 }
