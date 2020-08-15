@@ -65,6 +65,7 @@ function App() {
       <Header
         location={selectedLocality.length ? `${selectedLocality[0]}, ${selectedLocality[1]}, NZ` : '-'}
         openEditLocation={() => { document.activeElement.blur(); setEditLocationModalOpen(true) }}
+        getAlerts={() => Notification.requestPermission()}
       />
 
       {/* Overview */}
