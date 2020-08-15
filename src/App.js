@@ -62,7 +62,7 @@ function App() {
 
   const sections = [{
     category: "Healthcare",
-    icon: "section-health.png",
+    icon: "section-health.svg",
     color: "green",
     items: [
       { title: "Hospital Beds", details: "123 / 1234", color: "green" },
@@ -75,7 +75,7 @@ function App() {
   },
   {
     category: "Essential Goods",
-    icon: "section-essential.png",
+    icon: "section-essential.svg",
     color: "red",
     items: [
       { title: "Rice", details: "limited supply", color: "yellow" },
@@ -87,7 +87,7 @@ function App() {
   },
   {
     category: "Security",
-    icon: "section-security.png",
+    icon: "section-security.svg",
     color: "green",
     items: [
       { title: "Police Response", details: "25 mins", color: "green" },
@@ -97,7 +97,7 @@ function App() {
   },
   {
     category: "Utilities",
-    icon: "section-utilities.png",
+    icon: "section-utilities.svg",
     color: "red",
     items: [
       { title: "Water", details: "restrictions apply", color: "yellow" },
@@ -109,7 +109,7 @@ function App() {
   },
   {
     category: "Trasport",
-    icon: "section-transport.png",
+    icon: "section-transport.svg",
     color: "red",
     items: [
       { title: "Traffic", details: "clear", color: "green" },
@@ -121,7 +121,7 @@ function App() {
   },
   {
     category: "Environment",
-    icon: "section-environment.png",
+    icon: "section-environment.svg",
     color: "green",
     items: [
       { title: "Air Quality", details: "good", color: "green" },
