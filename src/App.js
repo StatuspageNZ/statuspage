@@ -29,18 +29,23 @@ function App() {
   const [damWaterLevel, setDamWaterLevel] = useState(100);
 
   async function fetchData() {
-    const response = await fetch("http://api.checkon.life/data");
-    const json = await response.json();
-    console.log(json);
-    setVodafoneLineOk(json.vodaphoneLineStatus.isOk);
-    setVodafoneMobileOk(json.vodaphoneMobileStatus.isOk);
-    setSparkLandlineOk(json.sparkLandlineStatus.isOk);
-    setSparkMobileOk(json.sparkMobileStatus.isOk);
-    setVectorPowerOk(json.vectorPowerStatus.isOk);
-    setEarthquakeOk(json.earthQuakeStaus.isOk);
-    setAlertLevelStatus(json.alertLevelStatus);
-    setWaterCareOutageNumber(json.waterCareOutatage.numberOfOutages);
-    setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
+    try {
+      const response = await fetch("http://api.checkon.life/datayeet");
+      const json = await response.json();
+      console.log('json', json);
+      setVodafoneLineOk(json.vodaphoneLineStatus.isOk);
+      setVodafoneMobileOk(json.vodaphoneMobileStatus.isOk);
+      setSparkLandlineOk(json.sparkLandlineStatus.isOk);
+      setSparkMobileOk(json.sparkMobileStatus.isOk);
+      setVectorPowerOk(json.vectorPowerStatus.isOk);
+      setEarthquakeOk(json.earthQuakeStaus.isOk);
+      setAlertLevelStatus(json.alertLevelStatus);
+      setWaterCareOutageNumber(json.waterCareOutatage.numberOfOutages);
+      setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
+    }
+    catch (e) {
+      alert(`Error loading data: ${e.message} 😢`)
+    }
   }
 
   useEffect(() => {
