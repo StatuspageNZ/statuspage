@@ -60,6 +60,74 @@ function App() {
     selectLocality("Auckland Central");
   };
 
+  const sections = [{
+    category: "Healthcare",
+    icon: "",
+    items: [
+      { title: "Hospital Beds", details: "123 / 1234", color: "green" },
+      { title: "Hospitals", details: "6/6 operational", color: "green" },
+      { title: "Avg Wait time", details: "45 mins", color: "green" },
+      { title: "ICU Beds", details: "123 available", color: "green" },
+      { title: "6 of 6", details: "Hospitals operational", color: "green" },
+      { title: "6 of 6", details: "Hospitals operational", color: "green" },
+    ]
+  },
+  {
+    category: "Essential Goods",
+    icon: "",
+    items: [
+      { title: "Rice", details: "limited supply", color: "yellow" },
+      { title: "Toilet Paper", details: "unavailable", color: "red" },
+      { title: "Flour", details: "unavailable", color: "red" },
+      { title: "Fuel", details: "available", color: "green" },
+      { title: "Potatoes", details: "available", color: "green" },
+    ]
+  },
+  {
+    category: "Security",
+    icon: "",
+    items: [
+      { title: "Police Response", details: "25 mins", color: "green" },
+      { title: "Army", details: "not deployed", color: "green" },
+      { title: "Internet", details: "available", color: "green" },
+    ]
+  },
+  {
+    category: "Utilities",
+    icon: "",
+    items: [
+      { title: "Water", details: "restrictions apply", color: "yellow" },
+      { title: "Power", details: "repairs in progress", color: "red" },
+      { title: "Internet", details: "available", color: "green" },
+      { title: "Fuel", details: "available", color: "green" },
+      { title: "Potatoes", details: "availability", color: "green" },
+    ]
+  },
+  {
+    category: "Trasport",
+    icon: "",
+    items: [
+      { title: "Traffic", details: "clear", color: "green" },
+      { title: "Flights", details: "restricted", color: "red" },
+      { title: "Travel", details: "restrictions apply", color: "green" },
+      { title: "Fuel", details: "available", color: "green" },
+      { title: "Potatoes", details: "available", color: "green" },
+    ]
+  },
+  {
+    category: "Environment",
+    icon: "",
+    items: [
+      { title: "Air Quality", details: "good", color: "green" },
+      { title: "Water Quality", details: "good", color: "green" },
+    ]
+  }]
+
+  const filteredSections = sections.filter(section => {
+    // TODO: improve filtering
+    return section.category.toLowerCase().indexOf(filterQuery.trim().toLowerCase()) !== -1
+  })
+
   return (
     <div className="App">
       {/* Header */}
@@ -90,68 +158,14 @@ function App() {
 
       {/* Status Details */}
       <Statuses>
-        <StatusSection category="Healthcare" icon="">
-          <StatusItem
-            title="Hospital Beds"
-            details="123 / 1234"
-            color="green"
-          />
-          <StatusItem
-            title="Hospitals"
-            details="6/6 operational"
-            color="green"
-          />
-          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
-          <StatusItem title="ICU Beds" details="123 available" color="green" />
-          <StatusItem
-            title="6 of 6"
-            details="Hospitals operational"
-            color="green"
-          />
-          <StatusItem
-            title="6 of 6"
-            details="Hospitals operational"
-            color="green"
-          />
-        </StatusSection>
-        <StatusSection category="Essential Goods" icon="">
-          <StatusItem title="Rice" details="limited supply" color="yellow" />
-          <StatusItem title="Toilet Paper" details="unavailable" color="red" />
-          <StatusItem title="Flour" details="unavailable" color="red" />
-          <StatusItem title="Fuel" details="available" color="green" />
-          <StatusItem title="Potatoes" details="available" color="green" />
-        </StatusSection>
-        <StatusSection category="Security" icon="">
-          <StatusItem title="Police Response" details="25 mins" color="green" />
-          <StatusItem title="Army" details="not deployed" color="green" />
-          <StatusItem title="Internet" details="available" color="green" />
-        </StatusSection>
-        <StatusSection category="Utilities" icon="">
-          <StatusItem
-            title="Water"
-            details="restrictions apply"
-            color="yellow"
-          />
-          <StatusItem title="Power" details="repairs in progress" color="red" />
-          <StatusItem title="Internet" details="available" color="green" />
-          <StatusItem title="Fuel" details="available" color="green" />
-          <StatusItem title="Potatoes" details="availability" color="green" />
-        </StatusSection>
-        <StatusSection category="Trasport" icon="">
-          <StatusItem title="Traffic" details="clear" color="green" />
-          <StatusItem title="Flights" details="restricted" color="red" />
-          <StatusItem
-            title="Travel"
-            details="restrictions apply"
-            color="green"
-          />
-          <StatusItem title="Fuel" details="available" color="green" />
-          <StatusItem title="Potatoes" details="available" color="green" />
-        </StatusSection>
-        <StatusSection category="Environment" icon="">
-          <StatusItem title="Air Quality" details="good" color="green" />
-          <StatusItem title="Water Quality" details="good" color="green" />
-        </StatusSection>
+        {filteredSections.map(section => (
+          <StatusSection category={section.category} icon={section.icon}>
+            {/* TODO: highlight filter query */}
+            {section.items.map(item => (
+              <StatusItem title={item.title} details={item.details} color={item.color} />
+            ))}
+          </StatusSection>
+        ))}
       </Statuses>
 
       {/* Modal */}
