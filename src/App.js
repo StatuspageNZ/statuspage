@@ -27,6 +27,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
+  const [filterQuery, setFilterQuery] = useState("")
   const [selectedLocality, setSelectedLocality] = useState([]);
 
   function selectLocality(value) {
@@ -81,7 +82,11 @@ function App() {
       </Overview>
 
       {/* Search */}
-      <Search location={""} setLocation={() => {}} />
+      <Search
+        filterQuery={filterQuery}
+        locality={selectedLocality.length ? selectedLocality[0] : ''}
+        setFilterQuery={setFilterQuery}
+      />
 
       {/* Status Details */}
       <Statuses>

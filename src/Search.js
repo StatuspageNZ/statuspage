@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 
-const Search = ({ location, setLocation }) => (
+const Search = ({ locality, filterQuery, setFilterQuery }) => (
   <input
     className="search"
     type="text"
-    placeholder="Search Region"
-    value={location}
-    onChange={(e) => setLocation(e.target.value)}
+    placeholder={`Search ${locality}`}
+    value={filterQuery}
+    onChange={(e) => setFilterQuery(e.target.value)}
   />
 );
 
