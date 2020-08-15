@@ -63,6 +63,11 @@ function App() {
     onChange,
   };
 
+  const onCurrentLocationClicked = () => {
+    setEditLocationModalOpen(false)
+    setValue("Auckland")
+  }
+
   return (
     <div className="App">
       {/* Header */}
@@ -175,7 +180,7 @@ function App() {
           />
 
           <div className="edit-location-modal__delimeter">or</div>
-          <button>Use current location</button>
+          <button onClick={onCurrentLocationClicked}>Use current location</button>
         </div>
       </Modal>
     </div>
