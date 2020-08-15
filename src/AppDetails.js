@@ -14,7 +14,7 @@ function AppDetails({ location }) {
   let history = useHistory();
 
   if (!locality) {
-    return <h1>Suburb not found 😢</h1>
+    return <h1>Suburb not found <span role="img" aria-label="sad">😢</span></h1>
   }
 
   const barGraphs = [
