@@ -25,8 +25,8 @@ function App() {
   const [vectorPowerOk, setVectorPowerOk] = useState(true);
   const [earthquakeOk, setEarthquakeOk] = useState(true);
   const [alertLevelStatus, setAlertLevelStatus] = useState("Alert Level 1");
-  const [waterCareOutageNumber, setWaterCareOutageNumber] = useState("");
-  const [damWaterLevel, setDamWaterLevel] = useState("");
+  const [waterCareOutageNumber, setWaterCareOutageNumber] = useState(0);
+  const [damWaterLevel, setDamWaterLevel] = useState(100);
 
 
   const fetchData = async () => {
