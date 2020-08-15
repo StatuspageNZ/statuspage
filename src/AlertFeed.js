@@ -20,7 +20,9 @@ const AlertFeed = () => {
         {news.map((item) => (
           <li key={item.guid}>
             {String(item.pubDate).split(" ")[0]}:{" "}
-            <a href={item.link}>{item.title}</a>
+            <a href={item.link} rel="noopener noreferrer" target="_blank">
+              {item.title}
+            </a>
           </li>
         ))}
       </ul>
