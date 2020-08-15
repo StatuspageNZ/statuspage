@@ -186,3 +186,36 @@
 
 @media screen and (max-width: 768px) {
 }
+
+.edit-location-modal__overlay {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.edit-location-modal {
+  width: 523px;
+  height: 488px;
+  background: #FFFFFF;
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.edit-location-modal__title {
+  padding: 24px;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: bold;
+}
+
+.edit-location-modal__content {
+  border-top: 4px solid black;
+  padding: 37px 24px;
+}
