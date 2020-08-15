@@ -153,7 +153,7 @@ button {
 .statuses {
   width: 100%;
   max-width: 1000px;
-  margin-top: 40px;
+  margin-top: 32px;
   justify-content: space-between;
   column-count: 2;
   column-gap: 40px;
@@ -166,9 +166,10 @@ button {
   box-shadow: 8px 6px 0px #000000;
   border-radius: 12px;
   width: 100%;
-  margin-bottom: 40px;
   display: inline-block;
   transition: all .2s ease-in-out;
+  margin-top: 8px;
+  margin-bottom: 32px;
 }
 
 .status-section:hover {
