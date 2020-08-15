@@ -92,7 +92,7 @@ button {
 }
 
 .overview__header--yellow {
-  background: #FCFF76;
+  background: #fcff76;
 }
 
 .overview__description {
@@ -167,7 +167,7 @@ button {
   border-radius: 12px;
   width: 100%;
   display: inline-block;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-top: 8px;
   margin-bottom: 32px;
 }
