@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import Header from "./Header";
+import Search from "./Search";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
-import Header from "./Header";
 
 function App() {
+  const [location, setLocation] = useState("Browsns Bay, Auckland, NZ");
+
   return (
     <div className="App">
-      <Header location="Browns Bay, Auckland, NZ" />
+      <Header location={location} />
       <div className="overview">
         <div className="overview__header">
           <b>Browns Bay</b> is at Alert Level 3
@@ -54,7 +57,7 @@ function App() {
         </div>
       </div>
 
-      <input className="search" type="text" placeholder="Search brown bay" />
+      <Search location={location} setLocation={setLocation} />
 
       <div className="statuses">
         <StatusSection category="Healthcare" icon="">
