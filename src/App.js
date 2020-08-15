@@ -49,7 +49,7 @@ function App() {
 
   const onCurrentLocationClicked = () => {
     setEditLocationModalOpen(false);
-    setValue("Auckland");
+    setSelectedLocality(["Auckland Central", "Auckland"]);
   };
 
   return (
