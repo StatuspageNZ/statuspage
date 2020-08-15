@@ -77,38 +77,38 @@ function App() {
         </StatusSection>
 
         <StatusSection category="Essential Goods" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
-          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
-          <StatusItem title="ICU Beds" details="123 available" color="green" />
-          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+          <StatusItem title="Rice" details="limited supply" color="yellow" />
+          <StatusItem title="Toilet Paper" details="unavailable" color="red" />
+          <StatusItem title="Flour" details="unavailable" color="red" />
+          <StatusItem title="Fuel" details="available" color="green" />
+          <StatusItem title="Potatoes" details="available" color="green" />
         </StatusSection>
 
         <StatusSection category="Security" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
-          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
+          <StatusItem title="Police Response" details="25 mins" color="green" />
+          <StatusItem title="Army" details="not deployed" color="green" />
+          <StatusItem title="Internet" details="available" color="green" />
         </StatusSection>
 
         <StatusSection category="Utilities" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
-          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
-          <StatusItem title="ICU Beds" details="123 available" color="green" />
-          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+          <StatusItem title="Water" details="restrictions apply" color="yellow" />
+          <StatusItem title="Power" details="repairs in progress" color="red" />
+          <StatusItem title="Internet" details="available" color="green" />
+          <StatusItem title="Fuel" details="available" color="green" />
+          <StatusItem title="Potatoes" details="availability" color="green" />
         </StatusSection>
 
         <StatusSection category="Trasport" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
-          <StatusItem title="Avg Wait time" details="45 mins" color="green" />
-          <StatusItem title="ICU Beds" details="123 available" color="green" />
-          <StatusItem title="6 of 6" details="Hospitals operational" color="green" />
+          <StatusItem title="Traffic" details="clear" color="green" />
+          <StatusItem title="Flights" details="restricted" color="red" />
+          <StatusItem title="Travel" details="restrictions apply" color="green" />
+          <StatusItem title="Fuel" details="available" color="green" />
+          <StatusItem title="Potatoes" details="available" color="green" />
         </StatusSection>
 
         <StatusSection category="Environment" icon="">
-          <StatusItem title="Hospital Beds" details="123 / 1234" color="green" />
-          <StatusItem title="Hospitals" details="6/6 operational" color="green" />
+          <StatusItem title="Air Quality" details="good" color="green" />
+          <StatusItem title="Water Quality" details="good" color="green" />
         </StatusSection>
       </div>
     </div>
