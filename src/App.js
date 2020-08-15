@@ -63,6 +63,7 @@ function App() {
   const sections = [{
     category: "Healthcare",
     icon: "",
+    color: "green",
     items: [
       { title: "Hospital Beds", details: "123 / 1234", color: "green" },
       { title: "Hospitals", details: "6/6 operational", color: "green" },
@@ -75,6 +76,7 @@ function App() {
   {
     category: "Essential Goods",
     icon: "",
+    color: "red",
     items: [
       { title: "Rice", details: "limited supply", color: "yellow" },
       { title: "Toilet Paper", details: "unavailable", color: "red" },
@@ -86,6 +88,7 @@ function App() {
   {
     category: "Security",
     icon: "",
+    color: "green",
     items: [
       { title: "Police Response", details: "25 mins", color: "green" },
       { title: "Army", details: "not deployed", color: "green" },
@@ -95,6 +98,7 @@ function App() {
   {
     category: "Utilities",
     icon: "",
+    color: "red",
     items: [
       { title: "Water", details: "restrictions apply", color: "yellow" },
       { title: "Power", details: "repairs in progress", color: "red" },
@@ -106,6 +110,7 @@ function App() {
   {
     category: "Trasport",
     icon: "",
+    color: "red",
     items: [
       { title: "Traffic", details: "clear", color: "green" },
       { title: "Flights", details: "restricted", color: "red" },
@@ -117,6 +122,7 @@ function App() {
   {
     category: "Environment",
     icon: "",
+    color: "green",
     items: [
       { title: "Air Quality", details: "good", color: "green" },
       { title: "Water Quality", details: "good", color: "green" },
@@ -161,7 +167,7 @@ function App() {
       {/* Status Details */}
       <Statuses>
         {filteredSections.map(section => (
-          <StatusSection category={section.category} icon={section.icon} highlight={filterQuery}>
+          <StatusSection category={section.category} icon={section.icon} highlight={filterQuery} color={section.color}>
             {section.items.map(item => (
               <StatusItem title={item.title} details={item.details} color={item.color} highlight={filterQuery} />
             ))}

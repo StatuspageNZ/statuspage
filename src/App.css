@@ -166,9 +166,17 @@ button {
   width: 65px;
   height: 67px;
   display: inline-block;
-  background: #91ff76;
   border-top-left-radius: 6px;
   border-right: 4px solid black;
+}
+.status-section__icon--green {
+  background: #91ff76;
+}
+.status-section__icon--yellow {
+  background: #FCFF76;
+}
+.status-section__icon--red {
+  background: #FF7676;
 }
 .status-section__title {
   margin: 14px;
