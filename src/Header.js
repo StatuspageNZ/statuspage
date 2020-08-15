@@ -9,7 +9,7 @@ const Header = ({ location, openEditLocation, getAlerts }) => (
     <div className="header__right-part">
       <button className="fancy-button" onClick={getAlerts}>Get Alerts</button>
       <button className="fancy-button" onClick={openEditLocation}>
-        Edit location
+        Edit Location
       </button>
     </div>
   </div>
