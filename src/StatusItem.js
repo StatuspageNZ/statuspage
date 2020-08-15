@@ -1,9 +1,10 @@
 import React from "react";
+import Highlighter from './Highlighter'
 
-const StatusItem = ({ title, color, details }) => (
+const StatusItem = ({ title, color, details, highlight }) => (
   <div className="line-item__container">
     <div className={`line-item__status-circle line-item__status-circle--${color}`}></div>
-    <b>{title}</b> - {details}
+    <b><Highlighter text={title} highlight={highlight}/></b> - {details}
   </div>
 );
 

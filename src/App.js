@@ -139,14 +139,14 @@ function App() {
 
       {/* Overview */}
       <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={3}>
-        <StatusItem title="Travel" details="restrictions apply" color="red" />
-        <StatusItem title="Water" details="restrictions apply" color="red" />
-        <StatusItem title="Internet" details="available" color="green" />
-        <StatusItem title="Power" details="issues" color="yellow" />
-        <StatusItem title="Healthcare" details="available" color="green" />
-        <StatusItem title="Security" details="no issues" color="green" />
-        <StatusItem title="Waterware" details="no issues" color="green" />
-        <StatusItem title="Essential goods" details="available" color="green" />
+        <StatusItem title="Travel" details="restrictions apply" color="red" highlight="" />
+        <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
+        <StatusItem title="Internet" details="available" color="green" highlight="" />
+        <StatusItem title="Power" details="issues" color="yellow" highlight="" />
+        <StatusItem title="Healthcare" details="available" color="green" highlight="" />
+        <StatusItem title="Security" details="no issues" color="green" highlight="" />
+        <StatusItem title="Waterware" details="no issues" color="green" highlight="" />
+        <StatusItem title="Essential goods" details="available" color="green" highlight="" />
       </Overview>
 
       {/* Search */}
@@ -160,7 +160,6 @@ function App() {
       <Statuses>
         {filteredSections.map(section => (
           <StatusSection category={section.category} icon={section.icon} highlight={filterQuery}>
-            {/* TODO: highlight filter query */}
             {section.items.map(item => (
               <StatusItem title={item.title} details={item.details} color={item.color} highlight={filterQuery} />
             ))}
