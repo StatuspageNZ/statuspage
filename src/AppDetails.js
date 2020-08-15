@@ -145,18 +145,22 @@ function AppDetails() {
         getAlerts={() => Notification.requestPermission()}
       />
 
-      {/* ILIA TO DO */}
-      <h1>Healthcare status</h1>
-      <div className="bar-graph__container">
-        Hospital Beds
-        |||||||||||||||||||||
-        2010            Today
+      <div className="app-details__container">
+
+        {/* ILIA TO DO */}
+        <h1 className="">Healthcare Status</h1>
+        <div className="bar-graph__container">
+          Hospital Beds
+          |||||||||||||||||||||
+          2010            Today
+        </div>
+
+
+        {/* OLAF TO DO */}
+        <h1>Latest alerts</h1>
+        <div className="last-alerts__container"></div>
+
       </div>
-
-
-      {/* OLAF TO DO */}
-      <h1>Latest alerts</h1>
-      <div className="last-alerts__container"></div>
     </div>
   );
 }

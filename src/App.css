@@ -378,3 +378,7 @@ button {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+.app-details__container {
+  width: 100%;
+}
