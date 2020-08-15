@@ -10,17 +10,6 @@ import Autosuggest from "react-autosuggest";
 import Modal from "react-modal";
 import suburbs from "./suburbs";
 
-const getSuggestions = (value) => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-
-  return inputLength === 0
-    ? []
-    : suburbs.filter(
-        (lang) => lang[0].toLowerCase().slice(0, inputLength) === inputValue
-      );
-};
-
 Modal.setAppElement("#root");
 
 function App() {
@@ -29,6 +18,17 @@ function App() {
   const [value, setValue] = useState("");
   const [filterQuery, setFilterQuery] = useState("")
   const [selectedLocality, setSelectedLocality] = useState([]);
+
+  const getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0
+      ? []
+      : suburbs.filter(
+          (lang) => lang[0].toLowerCase().slice(0, inputLength) === inputValue
+        );
+  };
 
   function selectLocality(value) {
     const locality = suburbs.find(locality => locality[0] === value)
