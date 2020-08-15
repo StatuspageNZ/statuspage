@@ -29,7 +29,14 @@ function App() {
   const [value, setValue] = useState("");
   const [selectedLocality, setSelectedLocality] = useState(["", ""]);
 
-  function onChange(event, { newValue }) {
+  function selectLocality(value) {
+    const locality = suburbs.find(locality => locality[0] === value)
+    if (locality) {
+      setSelectedLocality(locality);
+    }
+  }
+
+  function onChange(event, { newValue, method }) {
     setValue(newValue);
   }
 
@@ -49,7 +56,7 @@ function App() {
 
   const onCurrentLocationClicked = () => {
     setEditLocationModalOpen(false);
-    setSelectedLocality(["Auckland Central", "Auckland"]);
+    selectLocality("Auckland Central");
   };
 
   return (
@@ -57,7 +64,7 @@ function App() {
       {/* Header */}
       <Header
         location={`${selectedLocality[0]}, ${selectedLocality[1]}, NZ`}
-        openEditLocation={() => setEditLocationModalOpen(true)}
+        openEditLocation={() => { document.activeElement.blur(); setEditLocationModalOpen(true) }}
       />
 
       {/* Overview */}
@@ -152,7 +159,7 @@ function App() {
           <div className="edit-location-modal__title">Set your location</div>
         </div>
         <div className="edit-location-modal__content">
-          <div>Search suburbs</div>
+          <div className="edit-location-modal__desc">Search suburbs</div>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -174,13 +181,16 @@ function App() {
                 method,
               }
             ) => {
-              setSelectedLocality(suggestion);
+              selectLocality(suggestionValue)
               setEditLocationModalOpen(false);
             }}
           />
-
-          <div className="edit-location-modal__delimeter">or</div>
-          <button onClick={onCurrentLocationClicked}>
+          <div className="edit-location-modal__delimeter-container">
+            <div className="edit-location-modal__delimeter-left"></div>
+            <div className="edit-location-modal__delimeter">or</div>
+            <div className="edit-location-modal__delimeter-right"></div>
+          </div>
+          <button onClick={onCurrentLocationClicked} className="default-button edit-location-modal__current-location">
             Use current location
           </button>
         </div>
