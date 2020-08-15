@@ -24,7 +24,6 @@ const getSuggestions = (value) => {
 Modal.setAppElement("#root");
 
 function App() {
-  const [location, setLocation] = useState("Browns Bay, Auckland, NZ");
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
@@ -57,7 +56,7 @@ function App() {
     <div className="App">
       {/* Header */}
       <Header
-        location={location}
+        location={`${selectedLocality[0]}, ${selectedLocality[1]}, NZ`}
         openEditLocation={() => setEditLocationModalOpen(true)}
       />
 
@@ -74,7 +73,7 @@ function App() {
       </Overview>
 
       {/* Search */}
-      <Search location={location} setLocation={setLocation} />
+      <Search location={""} setLocation={() =>{}} />
 
       {/* Status Details */}
       <Statuses>
