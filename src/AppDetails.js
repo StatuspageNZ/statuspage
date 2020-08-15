@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import AlertFeed from "./AlertFeed";
 import "./App.css";
 import Header from "./Header";
+import ReactTooltip from "react-tooltip";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
@@ -10,6 +11,8 @@ function AppDetails({ location }) {
 
   const barGraphs = [
     {
+      id: "hospital-beds",
+      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Hospital Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -17,6 +20,8 @@ function AppDetails({ location }) {
       description: "",
     },
     {
+      id: "intensive-care-beds",
+      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Intensive Care Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -24,6 +29,8 @@ function AppDetails({ location }) {
       description: "",
     },
     {
+      id: "ventilators",
+      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Ventilators",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -31,6 +38,8 @@ function AppDetails({ location }) {
       description: "",
     },
     {
+      id: "response-time",
+      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Response time",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -67,7 +76,10 @@ function AppDetails({ location }) {
               <div className="bar-graph__status-indicator"></div>
               <div className="bar-graph__title">
                 <div className="bar-graph__title-text">{barGraph.name}</div>
-                <div className="bar-graph__info">?</div>
+                <div className="bar-graph__info" data-tip data-for={`tooltip-${barGraph.id}`}>?</div>
+                <ReactTooltip id={`tooltip-${barGraph.id}`} place="top" type="dark" effect="solid">
+                  <p>{barGraph.tooltip}</p>
+                </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">
                 <div className="bar-graph__timestamp-desc">Last updated</div>
