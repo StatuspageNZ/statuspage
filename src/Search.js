@@ -4,7 +4,7 @@ const Search = ({ location, setLocation }) => (
   <input
     className="search"
     type="text"
-    placeholder="Search Auckland Regions"
+    placeholder="Search Region"
     value={location}
     onChange={(e) => setLocation(e.target.value)}
   />
