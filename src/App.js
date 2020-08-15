@@ -7,25 +7,9 @@ import Statuses from "./Statuses";
 import StatusItem from "./StatusItem";
 import StatusSection from "./StatusSection";
 import Autosuggest from "react-autosuggest";
-import Modal from "react-modal";
+import Modal from 'react-modal';
+import suburbs from './suburbs'
 
-const suburbs = [
-  {
-    name: "Auckland",
-  },
-  {
-    name: "Christchurch",
-  },
-  {
-    name: "Wellington",
-  },
-  {
-    name: "Dunedin",
-  },
-  {
-    name: "Invercargill",
-  },
-];
 const getSuggestions = (value) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
@@ -33,7 +17,7 @@ const getSuggestions = (value) => {
   return inputLength === 0
     ? []
     : suburbs.filter(
-        (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+        (lang) => lang[0].toLowerCase().slice(0, inputLength) === inputValue
       );
 };
 
@@ -44,6 +28,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
+  const [selectedLocality, setSelectedLocality] = useState(['', ''])
 
   function onChange(event, { newValue }) {
     setValue(newValue);
@@ -173,10 +158,13 @@ function App() {
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
-            getSuggestionValue={(suggestion) => suggestion.name}
-            renderSuggestion={(suggestion) => <span>{suggestion.name}</span>}
+            getSuggestionValue={(suggestion) => suggestion[0]}
+            renderSuggestion={(suggestion) => (<span>{suggestion[0]}, {suggestion[1]}, NZ</span>)}
             inputProps={inputProps}
-            onSuggestionSelected={() => setEditLocationModalOpen(false)}
+            onSuggestionSelected={(e, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+              setSelectedLocality(suggestion)
+              setEditLocationModalOpen(false)
+            }}
           />
 
           <div className="edit-location-modal__delimeter">or</div>
