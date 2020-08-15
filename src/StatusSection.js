@@ -8,7 +8,7 @@ const StatusSection = ({ category, suburb, icon, highlight, color, children }) =
   return (
     <div
       className="status-section"
-      onClick={() => history.push(`/details?category=${category}&suburb=${suburb}`)}
+      onClick={() => { history.push(`/details?category=${category}&suburb=${suburb}`); window.scrollTo(0, {}) }}
     >
       <div className="status-section__header">
         <div className={`status-section__icon status-section__icon--${color}`}>
