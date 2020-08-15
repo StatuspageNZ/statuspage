@@ -108,7 +108,7 @@ function App() {
     ]
   },
   {
-    category: "Trasport",
+    category: "Transport",
     icon: "section-transport.svg",
     color: "red",
     items: [
@@ -153,8 +153,8 @@ function App() {
         <StatusItem title="Power" details="issues" color="yellow" highlight="" />
         <StatusItem title="Healthcare" details="available" color="green" highlight="" />
         <StatusItem title="Security" details="no issues" color="green" highlight="" />
-        <StatusItem title="Waterware" details="no issues" color="green" highlight="" />
-        <StatusItem title="Essential goods" details="available" color="green" highlight="" />
+        <StatusItem title="Watercare" details="no issues" color="green" highlight="" />
+        <StatusItem title="Essential Goods" details="available" color="green" highlight="" />
       </Overview>
 
       {/* Search */}
