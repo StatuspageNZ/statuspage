@@ -39,7 +39,7 @@ function App() {
     setSparkMobileOk(json.sparkMobileStatus.isOk);
     setVectorPowerOk(json.vectorPowerStatus.isOk);
     setEarthquakeOk(json.earthQuakeStaus.isOk);
-    setAlertLevelStatus(json.alertLevelStatus.Auckland);
+    setAlertLevelStatus(json.alertLevelStatus);
     setWaterCareOutageNumber(json.waterCareOutatage.numberOfOutages);
     setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
   }
@@ -179,7 +179,7 @@ function App() {
       />
 
       {/* Overview */}
-      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={alertLevelStatus}>
+      <Overview location={selectedLocality.length ? selectedLocality[0] : ''} alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}>
         <StatusItem title="Travel" details="restrictions apply" color="red" highlight="" />
         <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
         {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
