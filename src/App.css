@@ -168,6 +168,12 @@ button {
   display: inline-block;
   border-top-left-radius: 6px;
   border-right: 4px solid black;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.status-section__icon-img {
+  width: 60px;
 }
 .status-section__icon--green {
   background: #91ff76;
