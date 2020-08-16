@@ -2,8 +2,8 @@
 
 # We Are #CheckOn.
 
-![GitHub stars](https://img.shields.io/github/stars/StatuspageNZ/statuspage?style=social)
-![YouTube Video Likes](https://img.shields.io/youtube/likes/igj843wKGdo?style=social)
+[![GitHub stars](https://img.shields.io/github/stars/StatuspageNZ/statuspage)](https://github.com/StatuspageNZ/statuspage/stargazers)
+![YouTube Video Views](https://img.shields.io/youtube/views/igj843wKGdo?style=social)
 
 #### The status page for your suburb
 
