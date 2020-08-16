@@ -25,6 +25,6 @@ Our team (top left to bottom right):
 [Jackson Lawrence](https://www.linkedin.com/in/jklawrence/),
 [Caity Butcher](https://www.linkedin.com/in/caitybutcher/),
 [Minh Phu Lai](https://www.linkedin.com/in/minh-phu-lai/),
-[Olaf Wrieden](https://www.linkedin.com/in/olafwrieden/)
-[Walter Lim](https://www.linkedin.com/in/waltzaround/), 
+[Olaf Wrieden](https://www.linkedin.com/in/olafwrieden/),
+[Walter Lim](https://www.linkedin.com/in/waltzaround/),
 [William Seagar](https://www.linkedin.com/in/william-seagar-50512614b/)
