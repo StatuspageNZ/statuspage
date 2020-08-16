@@ -507,3 +507,7 @@ button {
   align-items: center;
   margin-bottom: 15px;
 }
+
+.link__link {
+  cursor: pointer;
+}

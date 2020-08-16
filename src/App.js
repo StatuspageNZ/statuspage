@@ -9,6 +9,7 @@ import StatusSection from "./StatusSection";
 import Autosuggest from "react-autosuggest";
 import Modal from "react-modal";
 import suburbs from "./suburbs";
+import Link from "./Link";
 
 Modal.setAppElement("#root");
 
@@ -188,22 +189,26 @@ function App() {
         location={selectedLocality.length ? selectedLocality[0] : ''}
         alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}
       >
-        <StatusItem title="Travel" details="restrictions apply" color="yellow" highlight="" />
-        <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
-        {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
-          <StatusItem title="Connectivity" details="available" color="green" highlight="" /> : 
-            !(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
-              <StatusItem title="Connectivity" details="some issues" color="yellow" highlight="" /> : 
-                <StatusItem title="Connectivity" details="critical outages" color="red" highlight="" />
-        }
-        {vectorPowerOk ? 
-          <StatusItem title="Power" details="no disruptions" color="green" highlight="" /> :
-            <StatusItem title="Power" details="issues" color="red" highlight="" />
-        }
-        <StatusItem title="Healthcare" details="available" color="green" highlight="" />
-        <StatusItem title="Security" details="no issues" color="green" highlight="" />
-        <StatusItem title="Weather" details="no issues" color="green" highlight="" />
-        <StatusItem title="Essential Goods" details="available" color="green" highlight="" />
+        <Link href="https://www.nzta.govt.nz/traffic-and-travel-information/"><StatusItem title="Travel" details="restrictions apply" color="yellow" highlight="" /></Link>
+        <Link href="https://www.watercare.co.nz/Faults-outages"><StatusItem title="Water" details="restrictions apply" color="red" highlight="" /></Link>
+        <Link href="https://www.vodafone.co.nz/help/network-status/">
+            {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
+            <StatusItem title="Connectivity" details="available" color="green" highlight="" /> : 
+              !(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
+                <StatusItem title="Connectivity" details="some issues" color="yellow" highlight="" /> : 
+                  <StatusItem title="Connectivity" details="critical outages" color="red" highlight="" />
+          }
+        </Link>
+        <Link href="https://www.vector.co.nz/personal/outages">
+          {vectorPowerOk ? 
+            <StatusItem title="Power" details="no disruptions" color="green" highlight="" /> :
+              <StatusItem title="Power" details="issues" color="red" highlight="" />
+          }
+        </Link>
+        <Link href="/details?category=Healthcare"><StatusItem title="Healthcare" details="available" color="green" highlight="" /></Link>
+        <Link href="/details?category=Security"><StatusItem title="Security" details="no issues" color="green" highlight="" /></Link>
+        <Link href="https://www.metservice.com/"><StatusItem title="Weather" details="no issues" color="green" highlight="" /></Link>
+        <Link href="/details?category=Essential Goods"><StatusItem title="Essential Goods" details="available" color="green" highlight="" /></Link>
       </Overview>
 
       {/* Search */}

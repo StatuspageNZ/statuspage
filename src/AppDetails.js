@@ -8,12 +8,12 @@ import suburbs from "./suburbs";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
-  const suburb = new URLSearchParams(location.search).get("suburb");
-  const locality = suburbs.find((locality) => locality[0] === suburb);
+  const selectedLocalityLS = localStorage.getItem('selectedLocality')
+  const locality = selectedLocalityLS ? JSON.parse(selectedLocalityLS) : []
 
   let history = useHistory();
 
-  if (!locality) {
+  if (!locality.length) {
     return (
       <h1>
         Suburb not found{" "}
