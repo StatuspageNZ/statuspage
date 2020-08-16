@@ -2,6 +2,9 @@
 
 # We Are #CheckOn.
 
+![GitHub stars](https://img.shields.io/github/stars/StatuspageNZ/statuspage?style=social)
+![YouTube Video Likes](https://img.shields.io/youtube/likes/igj843wKGdo?style=social)
+
 #### The status page for your suburb
 
 In 2020 we suffer from information overload and face a community transmission of fake news. _1 in 3 people don't know where to get official stats._
