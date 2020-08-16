@@ -9,18 +9,26 @@ import suburbs from "./suburbs";
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
   const suburb = new URLSearchParams(location.search).get("suburb");
-  const locality = suburbs.find(locality => locality[0] === suburb)
+  const locality = suburbs.find((locality) => locality[0] === suburb);
 
   let history = useHistory();
 
   if (!locality) {
-    return <h1>Suburb not found <span role="img" aria-label="sad">😢</span></h1>
+    return (
+      <h1>
+        Suburb not found{" "}
+        <span role="img" aria-label="sad">
+          😢
+        </span>
+      </h1>
+    );
   }
 
   const barGraphs = [
     {
       id: "hospital-beds",
-      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+      tooltip:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Hospital Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -29,7 +37,8 @@ function AppDetails({ location }) {
     },
     {
       id: "intensive-care-beds",
-      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+      tooltip:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Intensive Care Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -38,7 +47,8 @@ function AppDetails({ location }) {
     },
     {
       id: "ventilators",
-      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+      tooltip:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Ventilators",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -47,21 +57,22 @@ function AppDetails({ location }) {
     },
     {
       id: "response-time",
-      tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+      tooltip:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
       name: "Response time",
       timestampValue: "24 mins ago",
       year: "2010",
       date: "today",
       description: "",
     },
-  ]
+  ];
 
   return (
     <div className="App">
       {/* Header */}
       <Header
         title={`${category} Status`}
-        location={locality.length ? `${locality[0]}, ${locality[1]}, NZ` : '-'}
+        location={locality.length ? `${locality[0]}, ${locality[1]}, NZ` : "-"}
         openEditLocation={() => {
           document.activeElement.blur();
         }}
@@ -70,28 +81,39 @@ function AppDetails({ location }) {
 
       <div className="app-details__container">
         {/* ILIA TO DO */}
-
         <h1>
           <span onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
             ←
           </span>{" "}
           {category} Status
         </h1>
-
         {barGraphs.map((barGraph, i) => (
           <div className="bar-graph__container" key={i}>
             <div className="bar-graph__header">
               <div className="bar-graph__status-indicator"></div>
               <div className="bar-graph__title">
                 <div className="bar-graph__title-text">{barGraph.name}</div>
-                <div className="bar-graph__info" data-tip data-for={`tooltip-${barGraph.id}`}>?</div>
-                <ReactTooltip id={`tooltip-${barGraph.id}`} place="top" type="dark" effect="solid">
+                <div
+                  className="bar-graph__info"
+                  data-tip
+                  data-for={`tooltip-${barGraph.id}`}
+                >
+                  ?
+                </div>
+                <ReactTooltip
+                  id={`tooltip-${barGraph.id}`}
+                  place="top"
+                  type="dark"
+                  effect="solid"
+                >
                   <p>{barGraph.tooltip}</p>
                 </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">
                 <div className="bar-graph__timestamp-desc">Last updated</div>
-                <div className="bar-graph__timestamp-value">{barGraph.timestampValue}</div>
+                <div className="bar-graph__timestamp-value">
+                  {barGraph.timestampValue}
+                </div>
               </div>
             </div>
             <div className="bar-graph__graph">
@@ -142,7 +164,6 @@ function AppDetails({ location }) {
             </div>
           </div>
         ))}
-
         {/* OLAF TO DO */}
         <h1>Latest alerts</h1>
         <div className="last-alerts__container"></div>

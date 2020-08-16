@@ -1,32 +1,34 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function Sentiment({sentiment}) {
+function Sentiment({ sentiment }) {
   const color = {
     POSITIVE: "green",
     NEGATIVE: "red",
     NEUTRAL: "grey",
     MIXED: "yellow",
-  }
-  return (
-    <span className={`sentiment sentiment--${color[sentiment]}`}></span>
-  )
+  };
+  return <span className={`sentiment sentiment--${color[sentiment]}`}></span>;
 }
 const AlertFeed = () => {
   const [news, setNews] = useState([]);
   const [police, setPolice] = useState([]);
-  const sentimentsRef = useRef({})
-  const [, setNonce] = useState(0)
+  const sentimentsRef = useRef({});
+  const [, setNonce] = useState(0);
 
   async function fetchSentiment(text) {
-    const res = await fetch('https://nxy8n67x9k.execute-api.ap-southeast-2.amazonaws.com/prod', {
-      method: 'POST', body: JSON.stringify({
-        text,
-      })
-    })
-    const data = await res.json()
-    const sentiment = data.body.Sentiment
-    sentimentsRef.current[text] = sentiment
-    setNonce(Date.now())
+    const res = await fetch(
+      "https://nxy8n67x9k.execute-api.ap-southeast-2.amazonaws.com/prod",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          text,
+        }),
+      }
+    );
+    const data = await res.json();
+    const sentiment = data.body.Sentiment;
+    sentimentsRef.current[text] = sentiment;
+    setNonce(Date.now());
   }
 
   useEffect(() => {
@@ -36,8 +38,8 @@ const AlertFeed = () => {
       ).then((response) => response.json());
       setNews(result.items);
 
-      const promises = result.items.map(item => fetchSentiment(item.title))
-      await Promise.all(promises)
+      const promises = result.items.map((item) => fetchSentiment(item.title));
+      await Promise.all(promises);
     };
     const fetchPoliceData = async () => {
       const result = await fetch(
@@ -48,7 +50,7 @@ const AlertFeed = () => {
       var array = [];
       for (var i in items) {
         if (items[i]) {
-          array.push(items[i].content)
+          array.push(items[i].content);
         }
       }
 
@@ -64,18 +66,21 @@ const AlertFeed = () => {
       });
 
       function extractContent(s) {
-        var span = document.createElement('span');
+        var span = document.createElement("span");
         span.innerHTML = s;
         return span.innerText;
-      };
+      }
 
       for (i in data) {
-        data[i].content = extractContent(data[i].content.toString()).replace(/([\s\n])+/g, " ").split("ENDS")[0].trim()
-      };
+        data[i].content = extractContent(data[i].content.toString())
+          .replace(/([\s\n])+/g, " ")
+          .split("ENDS")[0]
+          .trim();
+      }
       setPolice(data);
 
-      const promises = data.map(item => fetchSentiment(item.title))
-      await Promise.all(promises)
+      const promises = data.map((item) => fetchSentiment(item.title));
+      await Promise.all(promises);
     };
 
     fetchStuffData();
@@ -84,41 +89,41 @@ const AlertFeed = () => {
 
   return (
     <>
-    <div>
-      <ul className="alert-feed__list">
-        {news.map((item) => (
-          <li key={item.guid} className="alert-feed__alert">
-            <Sentiment sentiment={sentimentsRef.current[item.title]}/>
-            <div>
+      <div>
+        <ul className="alert-feed__list">
+          {news.map((item) => (
+            <li key={item.guid} className="alert-feed__alert">
+              <Sentiment sentiment={sentimentsRef.current[item.title]} />
               <div>
-                <a href={item.link} rel="noopener noreferrer" target="_blank">
-                {item.title}
-              </a>
+                <div>
+                  <a href={item.link} rel="noopener noreferrer" target="_blank">
+                    {item.title}
+                  </a>
+                </div>
+                {String(item.pubDate).split(" ")[0]}
               </div>
-              {String(item.pubDate).split(" ")[0]}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div>
-      <ul className="alert-feed__list">
-        {police.map((item) => (
-          <li key={item.guid} className="alert-feed__alert">
-            <Sentiment sentiment={sentimentsRef.current[item.title]}/>
-            <div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <ul className="alert-feed__list">
+          {police.map((item) => (
+            <li key={item.guid} className="alert-feed__alert">
+              <Sentiment sentiment={sentimentsRef.current[item.title]} />
               <div>
-                <a href={item.link} rel="noopener noreferrer" target="_blank">
-                {item.title}
-              </a>
+                <div>
+                  <a href={item.link} rel="noopener noreferrer" target="_blank">
+                    {item.title}
+                  </a>
+                </div>
+                {String(item.pubDate).split(" ")[0]}
               </div>
-              {String(item.pubDate).split(" ")[0]}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
