@@ -32,7 +32,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const response = await fetch("http://api.checkon.life/data");
+      const response = await fetch("https://api.checkon.life/data");
       const json = await response.json();
       console.log('json', json);
       setVodafoneLineOk(json.vodaphoneLineStatus.isOk);
@@ -47,7 +47,7 @@ function App() {
       setToiletPaperOk(json.countdownToiletPaperStatus.isOk);
     }
     catch (e) {
-      // alert(`Error loading data: ${e.message} 😢`)
+      alert(`Error loading data: ${e.message} 😢`)
     }
   }
 
