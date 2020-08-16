@@ -12,11 +12,11 @@ _Check On_ delivers a calm, actionable single source of truth for you and your s
 
 It is easy to tell when things are going well. When they aren't we direct you to the source of information. We integrate state-of-the-art and industry-leading Machine Learning to prioritise essential information
 
-### Our Video
+### 🎥 Our Video
 
 [![Demo](https://img.youtube.com/vi/O14cMwfboos/0.jpg)](https://www.youtube.com/watch?v=O14cMwfboos)
 
-### Team #CheckOn
+### 📸 Team #CheckOn
 
 ![Screenshot](https://imgur.com/qipU8zR.png)
 
