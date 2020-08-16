@@ -483,6 +483,7 @@ button {
   box-sizing: border-box;
   display: inline-block;
   border-radius: 50px;
+  margin-right: 15px;
 }
 
 .sentiment--green {
@@ -496,4 +497,13 @@ button {
 }
 .sentiment--grey {
   background: #FCFF76;
+}
+
+.alert-feed__list {
+  padding-left: 0;
+}
+.alert-feed__alert {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }

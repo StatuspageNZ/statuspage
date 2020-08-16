@@ -82,14 +82,18 @@ const AlertFeed = () => {
   return (
     <>
     <div>
-      <ul>
+      <ul className="alert-feed__list">
         {news.map((item) => (
-          <li key={item.guid}>
-            {String(item.pubDate).split(" ")[0]}:{" "}
+          <li key={item.guid} className="alert-feed__alert">
             <Sentiment sentiment={sentimentsRef.current[item.title]}/>
-            <a href={item.link} rel="noopener noreferrer" target="_blank">
-              {item.title}
-            </a>
+            <div>
+              <div>
+                <a href={item.link} rel="noopener noreferrer" target="_blank">
+                {item.title}
+              </a>
+              </div>
+              {String(item.pubDate).split(" ")[0]}
+            </div>
           </li>
         ))}
       </ul>

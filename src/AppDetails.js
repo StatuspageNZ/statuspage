@@ -78,8 +78,8 @@ function AppDetails({ location }) {
           {category} Status
         </h1>
 
-        {barGraphs.map((barGraph) => (
-          <div className="bar-graph__container">
+        {barGraphs.map((barGraph, i) => (
+          <div className="bar-graph__container" key={i}>
             <div className="bar-graph__header">
               <div className="bar-graph__status-indicator"></div>
               <div className="bar-graph__title">
