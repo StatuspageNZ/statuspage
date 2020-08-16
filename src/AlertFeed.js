@@ -12,6 +12,7 @@ function Sentiment({ sentiment }) {
 const AlertFeed = () => {
   const [news, setNews] = useState([]);
   const [police, setPolice] = useState([]);
+  const [healthNews, setHealthNews] = useState([]);
   const sentimentsRef = useRef({});
   const [, setNonce] = useState(0);
 
@@ -45,7 +46,6 @@ const AlertFeed = () => {
       const result = await fetch(
         "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.police.govt.nz%2Frss%2Falerts"
       ).then((response) => response.json());
-      console.log(result.items);
       const items = result.items;
       var array = [];
       for (var i in items) {
@@ -83,8 +83,52 @@ const AlertFeed = () => {
       await Promise.all(promises);
     };
 
+
+    const fetchHealthData = async () => {
+      const result = await fetch(
+        "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.health.govt.nz%2Ffeeds%2Fmedia-atom.xml"
+      ).then((response) => response.json());
+      const items = result.items;
+      var array = [];
+      for (var i in items) {
+        if (items[i]) {
+          array.push(items[i].content);
+        }
+      }
+
+      let data = [];
+      result.items.forEach((element) => {
+        data.push({
+          title: element.title,
+          guid: element.guid,
+          link: element.link,
+          pubDate: element.pubDate,
+          content: element.content,
+        });
+      });
+
+      function extractContent(s) {
+        var span = document.createElement("span");
+        span.innerHTML = s;
+        return span.innerText;
+      }
+
+      for (i in data) {
+        data[i].content = extractContent(data[i].content.toString())
+          .replace(/([\s\n])+/g, " ")
+          .trim();
+      }
+
+      setHealthNews(data);
+
+      const promises = data.map((item) => fetchSentiment(item.title));
+      await Promise.all(promises);
+    };
+    
+
     fetchStuffData();
     fetchPoliceData();
+    fetchHealthData();
   }, []);
 
   return (
@@ -109,6 +153,23 @@ const AlertFeed = () => {
       <div>
         <ul className="alert-feed__list">
           {police.map((item) => (
+            <li key={item.guid} className="alert-feed__alert">
+              <Sentiment sentiment={sentimentsRef.current[item.title]} />
+              <div>
+                <div>
+                  <a href={item.link} rel="noopener noreferrer" target="_blank">
+                    {item.title}
+                  </a>
+                </div>
+                {String(item.pubDate).split(" ")[0]}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <ul className="alert-feed__list">
+          {healthNews.map((item) => (
             <li key={item.guid} className="alert-feed__alert">
               <Sentiment sentiment={sentimentsRef.current[item.title]} />
               <div>
