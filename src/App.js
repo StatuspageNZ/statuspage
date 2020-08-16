@@ -207,7 +207,7 @@ function App() {
         </Link>
         <Link href="/details?category=Healthcare"><StatusItem title="Healthcare" details="available" color="green" highlight="" /></Link>
         <Link href="/details?category=Security"><StatusItem title="Security" details="no issues" color="green" highlight="" /></Link>
-        <Link href="https://www.metservice.com/"><StatusItem title="Weather" details="no issues" color="green" highlight="" /></Link>
+        <Link href="https://www.metservice.com/towns-cities/locations/auckland"><StatusItem title="Weather" details="no issues" color="green" highlight="" /></Link>
         <Link href="/details?category=Essential Goods"><StatusItem title="Essential Goods" details="available" color="green" highlight="" /></Link>
       </Overview>
 
