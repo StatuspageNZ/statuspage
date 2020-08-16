@@ -101,11 +101,16 @@ function AppDetails({ location }) {
                 <ReactTooltip
                   id={`tooltip-${barGraph.id}`}
                   place="top"
-                  type="dark"
+                  type="light"
                   effect="solid"
+                  delayHide={500}
+                  border={true}
+                  clickable={true}
+                  className='react-tooltip__tooltip'
                 >
-                  <p>{barGraph.tooltip}</p>
-                  <p><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></p>
+                  <div className="react-tooltip__1part"><b>{barGraph.name}</b></div>
+                  <div className="react-tooltip__2part">{barGraph.tooltip}</div>
+                  <div className="react-tooltip__3part"><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></div>
                 </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">
