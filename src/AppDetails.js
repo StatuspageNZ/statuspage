@@ -168,10 +168,12 @@ function AppDetails({ location }) {
             </div>
           </div>
         )): <p>Coming soon to a screen near you</p>}
-        <h1>Latest alerts</h1>
-        <div className="last-alerts__container"></div>
-        Here are some of the most relevant recent stories about {category}
-        <AlertFeed />
+        {category === "Healthcare" || category === "Security" ? <>
+          <h1>Latest alerts</h1>
+          <div className="last-alerts__container"></div>
+          Here are some of the most relevant recent stories about {category}
+          <AlertFeed category={category} />
+        </> : null}
       </div>
     </div>
   );
