@@ -79,14 +79,13 @@ function AppDetails({ location }) {
       />
 
       <div className="app-details__container">
-        {/* ILIA TO DO */}
         <h1>
           <span onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
             ←
           </span>{" "}
           {category} Status
         </h1>
-        {barGraphs.map((barGraph, i) => (
+        {category === "Healthcare" ? barGraphs.map((barGraph, i) => (
           <div className="bar-graph__container" key={i}>
             <div className="bar-graph__header">
               <div className="bar-graph__status-indicator"></div>
@@ -163,8 +162,7 @@ function AppDetails({ location }) {
               <div className="bar-graph__date">{barGraph.date}</div>
             </div>
           </div>
-        ))}
-        {/* OLAF TO DO */}
+        )): <p>Coming soon to a screen near you</p>}
         <h1>Latest alerts</h1>
         <div className="last-alerts__container"></div>
         Here are some of the most relevant recent stories about {category}
