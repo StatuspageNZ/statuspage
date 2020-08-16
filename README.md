@@ -1,4 +1,4 @@
-![Screenshot](https://imgur.com/7q5eOmx.gif)
+![Animation](https://imgur.com/7q5eOmx.gif)
 
 # We Are #CheckOn.
 
@@ -9,3 +9,22 @@ In 2020 we suffer from information overload and face a community transmission of
 **Information is power!** Check On delivers a calm, actionable single source of truth for you and your suburb. It is a dynamic status page aggregating qualitative information from over 20 public agency and private institution data sources.
 
 It is easy to tell when things are going well. When they aren't we direct you to the source of information.
+
+We integrate state-of-the-art and industry-leading Machine Learning to prioritise essential information
+
+### Our Video
+
+[![Demo](https://img.youtube.com/vi/O14cMwfboos/0.jpg)](https://www.youtube.com/watch?v=O14cMwfboos)
+
+### Team #CheckOn
+
+![Screenshot](https://imgur.com/qipU8zR.png)
+
+Our team (top left to bottom right):
+[Ilia Sidorenko](https://www.linkedin.com/in/ilia-sidorenko/),
+[Jackson Lawrence](https://www.linkedin.com/in/jklawrence/),
+[Caity Butcher](https://www.linkedin.com/in/caitybutcher/),
+[Minh Phu Lai](https://www.linkedin.com/in/minh-phu-lai/),
+[Olaf Wrieden](https://www.linkedin.com/in/olafwrieden/)
+[Walter Lim](https://www.linkedin.com/in/waltzaround/), 
+[William Seagar](https://www.linkedin.com/in/william-seagar-50512614b/)
