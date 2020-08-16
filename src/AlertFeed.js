@@ -13,6 +13,7 @@ function Sentiment({sentiment}) {
 }
 const AlertFeed = () => {
   const [news, setNews] = useState([]);
+  const [police, setPolice] = useState([]);
   const sentimentsRef = useRef({})
   const [, setNonce] = useState(0)
 
@@ -29,7 +30,7 @@ const AlertFeed = () => {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchStuffData = async () => {
       const result = await fetch(
         "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.stuff.co.nz%2Frss"
       ).then((response) => response.json());
@@ -38,11 +39,48 @@ const AlertFeed = () => {
       const promises = result.items.map(item => fetchSentiment(item.title))
       await Promise.all(promises)
     };
+    const fetchPoliceData = async () => {
+      const result = await fetch(
+        "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.police.govt.nz%2Frss%2Falerts"
+      ).then((response) => response.json());
+      console.log(result.items);
+      const items = result.items;
+      var array = [];
+      for (var i in items) {
+        if (items[i]) {
+          array.push(items[i].content)
+        }
+      }
 
-    fetchData();
+      let data = [];
+      result.items.forEach((element) => {
+        data.push({
+          title: element.title,
+          guid: element.guid,
+          link: element.link,
+          pubDate: element.pubDate,
+          content: element.content,
+        });
+      });
+
+      function extractContent(s) {
+        var span = document.createElement('span');
+        span.innerHTML = s;
+        return span.innerText;
+      };
+
+      for (i in data) {
+        data[i].content = extractContent(data[i].content.toString()).replace(/([\s\n])+/g, " ").split("ENDS")[0].trim()
+      };
+      setPolice(data);
+    };
+
+    fetchStuffData();
+    fetchPoliceData();
   }, []);
 
   return (
+    <>
     <div>
       <ul>
         {news.map((item) => (
@@ -56,6 +94,19 @@ const AlertFeed = () => {
         ))}
       </ul>
     </div>
+    <div>
+      <ul>
+        {police.map((item) => (
+          <li key={item.guid}>
+            {String(item.pubDate).split(" ")[0]}:{" "}
+            <a href={item.link} rel="noopener noreferrer" target="_blank">
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </>
   );
 };
 
