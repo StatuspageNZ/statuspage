@@ -103,7 +103,7 @@ function App() {
     icon: "section-health.svg",
     color: "green",
     items: [
-      { title: "Hospital Beds", details: "123 / 1234", color: "green" },
+      { title: "Hospital Beds", details: "123 available", color: "green" },
       { title: "Hospitals", details: "6/6 operational", color: "green" },
       { title: "Avg Wait time", details: "45 mins", color: "green" },
       { title: "ICU Beds", details: "123 available", color: "green" },
