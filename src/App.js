@@ -188,7 +188,7 @@ function App() {
         location={selectedLocality.length ? selectedLocality[0] : ''}
         alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}
       >
-        <StatusItem title="Travel" details="restrictions apply" color="red" highlight="" />
+        <StatusItem title="Travel" details="restrictions apply" color="yellow" highlight="" />
         <StatusItem title="Water" details="restrictions apply" color="red" highlight="" />
         {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
           <StatusItem title="Connectivity" details="available" color="green" highlight="" /> : 
