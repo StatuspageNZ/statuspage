@@ -6,11 +6,11 @@
 
 In 2020 we suffer from information overload and face a community transmission of fake news. _1 in 3 people don't know where to get official stats._
 
-**Information is power!** Check On delivers a calm, actionable single source of truth for you and your suburb. It is a dynamic status page aggregating qualitative information from over 20 public agency and private institution data sources.
+#### Information is power!
 
-It is easy to tell when things are going well. When they aren't we direct you to the source of information.
+_Check On_ delivers a calm, actionable single source of truth for you and your suburb. It is a dynamic status page aggregating qualitative information from over 20 public agency and private institution data sources.
 
-We integrate state-of-the-art and industry-leading Machine Learning to prioritise essential information
+It is easy to tell when things are going well. When they aren't we direct you to the source of information. We integrate state-of-the-art and industry-leading Machine Learning to prioritise essential information
 
 ### Our Video
 
