@@ -1,4 +1,4 @@
-![Animation](https://imgur.com/7q5eOmx.gif)
+![Banner](https://imgur.com/GiItIH7.png)
 
 # We Are #CheckOn.
 
