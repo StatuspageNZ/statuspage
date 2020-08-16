@@ -474,3 +474,25 @@ button {
   line-height: 28px;
   padding: 22px 20px;
 }
+
+.sentiment {
+  width: 24px;
+  height: 24px;
+
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.sentiment--green {
+  background: #91FF76;
+}
+.sentiment--yellow {
+  background: #FCFF76;
+}
+.sentiment--red {
+  background: #FF7676;
+}
+.sentiment--grey {
+  background: #FCFF76;
+}
