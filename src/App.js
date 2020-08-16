@@ -19,6 +19,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(selectedLocality.length ? false : true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
+  const [isGetAlertsAvailable, setGetAlertsAvailable] = useState(true)
   const [filterQuery, setFilterQuery] = useState("")
   const [vodafoneLineOk, setVodafoneLineOk] = useState(true);
   const [vodafoneMobileOk, setVodafoneMobileOk] = useState(true);
@@ -181,7 +182,8 @@ function App() {
       <Header
         location={selectedLocality.length ? `${selectedLocality[0]}, ${selectedLocality[1]}, NZ` : '-'}
         openEditLocation={() => { document.activeElement.blur(); setEditLocationModalOpen(true) }}
-        getAlerts={() => Notification.requestPermission()}
+        getAlerts={() => Notification.requestPermission().then((permission) => setGetAlertsAvailable(false))}
+        isGetAlertsAvailable={isGetAlertsAvailable}
       />
 
       {/* Overview */}
