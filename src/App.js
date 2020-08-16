@@ -189,25 +189,25 @@ function App() {
         location={selectedLocality.length ? selectedLocality[0] : ''}
         alertLevel={alertLevelStatus[selectedLocality[1]] ? alertLevelStatus[selectedLocality[1]] : alertLevelStatus["Rest of New Zealand"]}
       >
-        <Link href="https://www.nzta.govt.nz/traffic-and-travel-information/"><StatusItem title="Travel" details="restrictions apply" color="yellow" highlight="" /></Link>
-        <Link href="https://www.watercare.co.nz/Faults-outages"><StatusItem title="Water" details="restrictions apply" color="red" highlight="" /></Link>
-        <Link href="https://www.vodafone.co.nz/help/network-status/">
+        <a className="href__href" href="https://www.nzta.govt.nz/traffic-and-travel-information/"><StatusItem title="Travel" details="restrictions apply" color="yellow" highlight="" /></a>
+        <a className="href__href" href="https://www.watercare.co.nz/Faults-outages"><StatusItem title="Water" details="restrictions apply" color="red" highlight="" /></a>
+        <a className="href__href" href="https://www.vodafone.co.nz/help/network-status/">
             {(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
             <StatusItem title="Connectivity" details="available" color="green" highlight="" /> : 
               !(sparkMobileOk && vodafoneMobileOk && sparkLandlineOk && vodafoneLineOk) ? 
                 <StatusItem title="Connectivity" details="some issues" color="yellow" highlight="" /> : 
                   <StatusItem title="Connectivity" details="critical outages" color="red" highlight="" />
           }
-        </Link>
-        <Link href="https://www.vector.co.nz/personal/outages">
+        </a>
+        <a className="href__href" href="https://www.vector.co.nz/personal/outages">
           {vectorPowerOk ? 
             <StatusItem title="Power" details="no disruptions" color="green" highlight="" /> :
               <StatusItem title="Power" details="issues" color="red" highlight="" />
           }
-        </Link>
+        </a>
         <Link href="/details?category=Healthcare"><StatusItem title="Healthcare" details="available" color="green" highlight="" /></Link>
         <Link href="/details?category=Security"><StatusItem title="Security" details="no issues" color="green" highlight="" /></Link>
-        <Link href="https://www.metservice.com/towns-cities/locations/auckland"><StatusItem title="Weather" details="no issues" color="green" highlight="" /></Link>
+        <a className="href__href" href={`https://www.metservice.com/towns-cities/locations/${selectedLocality[1].toLowerCase()}`}><StatusItem title="Weather" details="no issues" color="green" highlight="" /></a>
         <Link href="/details?category=Essential Goods"><StatusItem title="Essential Goods" details="available" color="green" highlight="" /></Link>
       </Overview>
 

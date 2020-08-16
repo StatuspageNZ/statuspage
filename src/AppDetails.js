@@ -4,7 +4,6 @@ import AlertFeed from "./AlertFeed";
 import "./App.css";
 import Header from "./Header";
 import ReactTooltip from "react-tooltip";
-import suburbs from "./suburbs";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
@@ -28,7 +27,7 @@ function AppDetails({ location }) {
     {
       id: "hospital-beds",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Hospital Beds near you.",
       name: "Hospital Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -38,7 +37,7 @@ function AppDetails({ location }) {
     {
       id: "intensive-care-beds",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Intensive Care Beds near you.",
       name: "Intensive Care Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -48,7 +47,7 @@ function AppDetails({ location }) {
     {
       id: "ventilators",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Ventilators near you.",
       name: "Ventilators",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -58,7 +57,7 @@ function AppDetails({ location }) {
     {
       id: "response-time",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Response time near you.",
       name: "Response time",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -107,6 +106,7 @@ function AppDetails({ location }) {
                   effect="solid"
                 >
                   <p>{barGraph.tooltip}</p>
+                  <p><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></p>
                 </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">
