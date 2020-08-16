@@ -146,7 +146,7 @@ function AppDetails({ location }) {
         {/* OLAF TO DO */}
         <h1>Latest alerts</h1>
         <div className="last-alerts__container"></div>
-        User wants to view details about {category}
+        Here are some of the most relevant recent stories about {category}
         <AlertFeed />
       </div>
     </div>
