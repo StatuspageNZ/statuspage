@@ -73,6 +73,9 @@ const AlertFeed = () => {
         data[i].content = extractContent(data[i].content.toString()).replace(/([\s\n])+/g, " ").split("ENDS")[0].trim()
       };
       setPolice(data);
+
+      const promises = data.map(item => fetchSentiment(item.title))
+      await Promise.all(promises)
     };
 
     fetchStuffData();
@@ -99,13 +102,18 @@ const AlertFeed = () => {
       </ul>
     </div>
     <div>
-      <ul>
+      <ul className="alert-feed__list">
         {police.map((item) => (
-          <li key={item.guid}>
-            {String(item.pubDate).split(" ")[0]}:{" "}
-            <a href={item.link} rel="noopener noreferrer" target="_blank">
-              {item.title}
-            </a>
+          <li key={item.guid} className="alert-feed__alert">
+            <Sentiment sentiment={sentimentsRef.current[item.title]}/>
+            <div>
+              <div>
+                <a href={item.link} rel="noopener noreferrer" target="_blank">
+                {item.title}
+              </a>
+              </div>
+              {String(item.pubDate).split(" ")[0]}
+            </div>
           </li>
         ))}
       </ul>
