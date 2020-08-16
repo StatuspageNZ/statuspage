@@ -4,7 +4,6 @@ import AlertFeed from "./AlertFeed";
 import "./App.css";
 import Header from "./Header";
 import ReactTooltip from "react-tooltip";
-import suburbs from "./suburbs";
 
 function AppDetails({ location }) {
   const category = new URLSearchParams(location.search).get("category");
@@ -107,6 +106,7 @@ function AppDetails({ location }) {
                   effect="solid"
                 >
                   <p>{barGraph.tooltip}</p>
+                  <p><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></p>
                 </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">

@@ -511,3 +511,7 @@ button {
 .link__link {
   cursor: pointer;
 }
+.href__href {
+  color: black;
+  text-decoration:none;
+}
