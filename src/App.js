@@ -25,6 +25,7 @@ function App() {
   const [sparkMobileOk, setSparkMobileOk] = useState(true);
   const [vectorPowerOk, setVectorPowerOk] = useState(true);
   const [earthquakeOk, setEarthquakeOk] = useState(true);
+  const [toiletPaperOk, setToiletPaperOk] = useState(true);
   const [alertLevelStatus, setAlertLevelStatus] = useState("Alert Level 1");
   const [waterCareOutageNumber, setWaterCareOutageNumber] = useState(0);
   const [damWaterLevel, setDamWaterLevel] = useState(100);
@@ -43,6 +44,7 @@ function App() {
       setAlertLevelStatus(json.alertLevelStatus);
       setWaterCareOutageNumber(json.waterCareOutatage.numberOfOutages);
       setDamWaterLevel(Math.round(json.damWaterLevel.averageDamPercentage));
+      setToiletPaperOk(json.countdownToiletPaperStatus.isOk);
     }
     catch (e) {
       // alert(`Error loading data: ${e.message} 😢`)
@@ -114,7 +116,7 @@ function App() {
     color: "red",
     items: [
       { title: "Rice", details: "limited supply", color: "yellow" },
-      { title: "Toilet Paper", details: "unavailable", color: "red" },
+      toiletPaperOk ? { title: "Toilet Paper", details: "available", color: "green" } : { title: "Toilet Paper", details: "unavailable", color: "red" },
       { title: "Flour", details: "unavailable", color: "red" },
       { title: "Fuel", details: "available", color: "green" },
       { title: "Potatoes", details: "available", color: "green" },
