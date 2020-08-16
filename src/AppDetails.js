@@ -28,7 +28,7 @@ function AppDetails({ location }) {
     {
       id: "hospital-beds",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Hospital Beds near you.",
       name: "Hospital Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -38,7 +38,7 @@ function AppDetails({ location }) {
     {
       id: "intensive-care-beds",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Intensive Care Beds near you.",
       name: "Intensive Care Beds",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -48,7 +48,7 @@ function AppDetails({ location }) {
     {
       id: "ventilators",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Ventilators near you.",
       name: "Ventilators",
       timestampValue: "24 mins ago",
       year: "2010",
@@ -58,7 +58,7 @@ function AppDetails({ location }) {
     {
       id: "response-time",
       tooltip:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum tortor sed mattis fringilla. Curabitur sit amet odio nulla.",
+        "Response time near you.",
       name: "Response time",
       timestampValue: "24 mins ago",
       year: "2010",
