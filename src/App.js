@@ -106,8 +106,6 @@ function App() {
       { title: "Hospitals", details: "6/6 operational", color: "green" },
       { title: "Avg Wait time", details: "45 mins", color: "green" },
       { title: "ICU Beds", details: "123 available", color: "green" },
-      { title: "6 of 6", details: "Hospitals operational", color: "green" },
-      { title: "6 of 6", details: "Hospitals operational", color: "green" },
     ]
   },
   {
@@ -118,7 +116,6 @@ function App() {
       { title: "Rice", details: "limited supply", color: "yellow" },
       toiletPaperOk ? { title: "Toilet Paper", details: "available", color: "green" } : { title: "Toilet Paper", details: "unavailable", color: "red" },
       { title: "Flour", details: "unavailable", color: "red" },
-      { title: "Fuel", details: "available", color: "green" },
       { title: "Potatoes", details: "available", color: "green" },
     ]
   },
@@ -144,7 +141,6 @@ function App() {
       (vodafoneLineOk && sparkLandlineOk) ? { title: "Landline & Internet", details: "available", color: "green" } : (!vodafoneLineOk && !sparkLandlineOk) ? { title: "Landline & Internet", details: "major disruption", color: "red" } : { title: "Landline & Internet", details: "partial disruption", color: "yellow" },
       (vodafoneMobileOk && sparkMobileOk) ? { title: "Mobile Networks", details: "available", color: "green" } : (!vodafoneMobileOk && !sparkMobileOk) ? { title: "Mobile Networks", details: "major disruption", color: "red" } : { title: "Mobile Networks", details: "partial disruption", color: "yellow" },
       { title: "Fuel", details: "available", color: "green" },
-      { title: "Potatoes", details: "availability", color: "green" },
     ]
   },
   {
@@ -154,9 +150,8 @@ function App() {
     items: [
       { title: "Traffic", details: "clear", color: "green" },
       { title: "Flights", details: "restricted", color: "red" },
-      { title: "Travel", details: "restrictions apply", color: "green" },
+      { title: "Travel", details: "restrictions apply", color: "yellow" },
       { title: "Fuel", details: "available", color: "green" },
-      { title: "Potatoes", details: "available", color: "green" },
     ]
   },
   {
