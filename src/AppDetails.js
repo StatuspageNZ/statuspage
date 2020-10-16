@@ -79,14 +79,13 @@ function AppDetails({ location }) {
       />
 
       <div className="app-details__container">
-        {/* ILIA TO DO */}
         <h1>
           <span onClick={() => history.push("/")} style={{ cursor: "pointer" }}>
             ←
           </span>{" "}
           {category} Status
         </h1>
-        {barGraphs.map((barGraph, i) => (
+        {category === "Healthcare" ? barGraphs.map((barGraph, i) => (
           <div className="bar-graph__container" key={i}>
             <div className="bar-graph__header">
               <div className="bar-graph__status-indicator"></div>
@@ -102,11 +101,16 @@ function AppDetails({ location }) {
                 <ReactTooltip
                   id={`tooltip-${barGraph.id}`}
                   place="top"
-                  type="dark"
+                  type="light"
                   effect="solid"
+                  delayHide={500}
+                  border={true}
+                  clickable={true}
+                  className='react-tooltip__tooltip'
                 >
-                  <p>{barGraph.tooltip}</p>
-                  <p><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></p>
+                  <div className="react-tooltip__1part"><b>{barGraph.name}</b></div>
+                  <div className="react-tooltip__2part">{barGraph.tooltip}</div>
+                  <div className="react-tooltip__3part"><a href="https://www.health.govt.nz/news-media/news-items/covid-19-novel-coronavirus-update-25-february">Source</a></div>
                 </ReactTooltip>
               </div>
               <div className="bar-graph__timestamp">
@@ -163,12 +167,13 @@ function AppDetails({ location }) {
               <div className="bar-graph__date">{barGraph.date}</div>
             </div>
           </div>
-        ))}
-        {/* OLAF TO DO */}
-        <h1>Latest alerts</h1>
-        <div className="last-alerts__container"></div>
-        Here are some of the most relevant recent stories about {category}
-        <AlertFeed />
+        )): <p>Coming soon to a screen near you</p>}
+        {category === "Healthcare" || category === "Security" ? <>
+          <h1>Latest alerts</h1>
+          <div className="last-alerts__container"></div>
+          Here are some of the most relevant recent stories about {category}
+          <AlertFeed category={category} />
+        </> : null}
       </div>
     </div>
   );

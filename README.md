@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Banner](https://imgur.com/GiItIH7.png)
 
-## Available Scripts
+# We Are #CheckOn.
 
-In the project directory, you can run:
+[![GitHub stars](https://img.shields.io/github/stars/StatuspageNZ/statuspage)](https://github.com/StatuspageNZ/statuspage/stargazers)
+![YouTube Video Views](https://img.shields.io/youtube/views/igj843wKGdo?style=social)
 
-### `yarn start`
+#### The status page for your suburb
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In 2020 we suffer from information overload and face a community transmission of fake news. _1 in 3 people don't know where to get official stats._
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Information is power!
 
-### `yarn test`
+_Check On_ delivers a calm, actionable single source of truth for you and your suburb. It is a dynamic status page aggregating qualitative information from over 20 public agency and private institution data sources.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It is easy to tell when things are going well. When they aren't we direct you to the source of information. We integrate state-of-the-art and industry-leading Machine Learning to prioritise essential information
 
-### `yarn build`
+### 🎥 Watch our Video
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![Demo](https://img.youtube.com/vi/igj843wKGdo/0.jpg)](https://www.youtube.com/watch?v=igj843wKGdo)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 📸 Team #CheckOn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screenshot](https://imgur.com/qipU8zR.png)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Our team (top left to bottom right):
+[Ilia Sidorenko](https://www.linkedin.com/in/ilia-sidorenko/),
+[Jackson Lawrence](https://www.linkedin.com/in/jklawrence/),
+[Caity Butcher](https://www.linkedin.com/in/caitybutcher/),
+[Minh Phu Lai](https://www.linkedin.com/in/minh-phu-lai/),
+[Olaf Wrieden](https://www.linkedin.com/in/olafwrieden/),
+[Walter Lim](https://www.linkedin.com/in/waltzaround/),
+[William Seagar](https://www.linkedin.com/in/william-seagar-50512614b/)

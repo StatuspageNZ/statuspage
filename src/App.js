@@ -19,6 +19,7 @@ function App() {
   const [isEditLocationModalOpen, setEditLocationModalOpen] = useState(selectedLocality.length ? false : true);
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
+  const [isGetAlertsAvailable, setGetAlertsAvailable] = useState(true)
   const [filterQuery, setFilterQuery] = useState("")
   const [vodafoneLineOk, setVodafoneLineOk] = useState(true);
   const [vodafoneMobileOk, setVodafoneMobileOk] = useState(true);
@@ -181,7 +182,8 @@ function App() {
       <Header
         location={selectedLocality.length ? `${selectedLocality[0]}, ${selectedLocality[1]}, NZ` : '-'}
         openEditLocation={() => { document.activeElement.blur(); setEditLocationModalOpen(true) }}
-        getAlerts={() => Notification.requestPermission()}
+        getAlerts={() => Notification.requestPermission().then((permission) => setGetAlertsAvailable(false))}
+        isGetAlertsAvailable={isGetAlertsAvailable}
       />
 
       {/* Overview */}
@@ -207,7 +209,7 @@ function App() {
         </a>
         <Link href="/details?category=Healthcare"><StatusItem title="Healthcare" details="available" color="green" highlight="" /></Link>
         <Link href="/details?category=Security"><StatusItem title="Security" details="no issues" color="green" highlight="" /></Link>
-        <a className="href__href" href={`https://www.metservice.com/towns-cities/locations/${selectedLocality[1].toLowerCase()}`}><StatusItem title="Weather" details="no issues" color="green" highlight="" /></a>
+        <a className="href__href" href={`https://www.metservice.com/towns-cities/locations/${(selectedLocality[1] || "").toLowerCase()}`}><StatusItem title="Weather" details="no issues" color="green" highlight="" /></a>
         <Link href="/details?category=Essential Goods"><StatusItem title="Essential Goods" details="available" color="green" highlight="" /></Link>
       </Overview>
 
